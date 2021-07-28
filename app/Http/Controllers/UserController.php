@@ -10,11 +10,17 @@ class UserController extends Controller
 {
     public function register(Request $request)
     {
-        $request->validate([
-            'name' => 'required',
-            'email' => 'required|email',
-            'password' => 'required'
-        ]);
+        try {
+            $request->validate([
+                'name' => 'required',
+                'email' => 'required|email',
+                'password' => 'required'
+            ]);
+        } catch (\Exception $e) {
+            return response([
+                'message' => ['Invalid or missing fields']
+            ], 401);
+        }
 
         $testExist = User::where('email', $request->email)->first();
         if ($testExist) {
@@ -30,7 +36,6 @@ class UserController extends Controller
         ]);
 
         $token = $user->createToken('event_manager')->plainTextToken;
-        $user->teams;
 
         $response = [
             'user' => $user,
@@ -42,10 +47,16 @@ class UserController extends Controller
 
     public function login(Request $request)
     {
-        $request->validate([
-            'email' => 'required|email',
-            'password' => 'required'
-        ]);
+        try {
+            $request->validate([
+                'email' => 'required|email',
+                'password' => 'required'
+            ]);
+        } catch (\Exception $e) {
+            return response([
+                'message' => ['Invalid or missing fields']
+            ], 401);
+        }
 
         $user = User::where('email', $request->email)->first();
 
@@ -56,8 +67,6 @@ class UserController extends Controller
         }
 
         $token = $user->createToken('event_manager')->plainTextToken;
-
-        $user->teams;
 
         $response = [
             'user' => $user,
@@ -70,7 +79,6 @@ class UserController extends Controller
     public function show(Request $request)
     {
         $user = $request->user();
-        $user->teams;
         return $user;
     }
 }
