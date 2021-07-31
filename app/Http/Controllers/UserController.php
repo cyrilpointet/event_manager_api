@@ -6,8 +6,19 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
+/**
+ * @group User management
+ *
+ * APIs for managing users
+ */
 class UserController extends Controller
 {
+    /**
+     * Create a user
+     * @bodyParam name string required The user's nickname
+     * @bodyParam email string required The user's email. Must be unique.
+     * @bodyParam password string required The user's password
+     */
     public function register(Request $request)
     {
         try {
@@ -26,7 +37,7 @@ class UserController extends Controller
         if ($testExist) {
             return response([
                 'message' => ['Already used email']
-            ], 404);
+            ], 401);
         }
 
         $user = User::create([
@@ -45,6 +56,11 @@ class UserController extends Controller
         return response($response, 201);
     }
 
+    /**
+     * Login a user and get a token
+     * @bodyParam email string required The user's email.
+     * @bodyParam password string required The user's password
+     */
     public function login(Request $request)
     {
         try {
@@ -76,6 +92,9 @@ class UserController extends Controller
         return response($response, 201);
     }
 
+    /**
+     * Get a user by its token
+     */
     public function show(Request $request)
     {
         $user = $request->user();
