@@ -1,82 +1,26 @@
-name: 'User management'
+name: 'Team management'
 description: |-
 
-  APIs for managing users
+  APIs for managing teams
 endpoints:
   -
     httpMethods:
-      - POST
-    uri: api/user/register
-    metadata:
-      title: 'Create a user'
-      description: ''
-      authenticated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    queryParameters: []
-    bodyParameters:
-      name:
-        name: name
-        description: 'The user''s nickname'
-        required: true
-        example: eos
-        type: string
-      email:
-        name: email
-        description: 'The user''s email. Must be unique.'
-        required: true
-        example: excepturi
-        type: string
-      password:
-        name: password
-        description: 'The user''s password'
-        required: true
-        example: error
-        type: string
-    responses: []
-    responseFields: []
-  -
-    httpMethods:
-      - POST
-    uri: api/user/login
-    metadata:
-      title: 'Login a user and get a token'
-      description: ''
-      authenticated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    queryParameters: []
-    bodyParameters:
-      email:
-        name: email
-        description: 'The user''s email.'
-        required: true
-        example: est
-        type: string
-      password:
-        name: password
-        description: 'The user''s password'
-        required: true
-        example: distinctio
-        type: string
-    responses: []
-    responseFields: []
-  -
-    httpMethods:
       - GET
-    uri: api/user
+    uri: 'api/team/{id}'
     metadata:
-      title: 'Get a user by its token'
+      title: 'Get a team by id'
       description: ''
       authenticated: false
     headers:
       Content-Type: application/json
       Accept: application/json
-    urlParameters: []
+    urlParameters:
+      id:
+        name: id
+        description: 'The team''s id'
+        required: true
+        example: 2
+        type: integer
     queryParameters: []
     bodyParameters: []
     responses:
@@ -88,4 +32,78 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/team
+    metadata:
+      title: |-
+        Create a team
+        and set current user as member and admin
+      description: ''
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'The team''s name'
+        required: true
+        example: sit
+        type: string
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/team/{id}'
+    metadata:
+      title: 'Update a team'
+      description: ''
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The team''s id'
+        required: true
+        example: 11
+        type: integer
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'The team''s name'
+        required: true
+        example: et
+        type: string
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/team/{id}'
+    metadata:
+      title: 'Delete a team'
+      description: ''
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The team''s id'
+        required: true
+        example: 11
+        type: integer
+    queryParameters: []
+    bodyParameters: []
+    responses: []
     responseFields: []
