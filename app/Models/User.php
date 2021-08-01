@@ -48,6 +48,6 @@ class User extends Authenticatable
             Team::class,
             'teams_users',
             'user_id',
-            'team_id')->withPivot('admin');
+            'team_id')->withPivot('admin')->using('App\Models\TeamUsersPivot');
     }
 }

@@ -21,7 +21,7 @@ endpoints:
         name: id
         description: 'The team''s id'
         required: true
-        example: 2
+        example: 11
         type: integer
     queryParameters: []
     bodyParameters: []
@@ -55,7 +55,7 @@ endpoints:
         name: name
         description: 'The team''s name'
         required: true
-        example: sit
+        example: ipsum
         type: string
     responses: []
     responseFields: []
@@ -75,7 +75,7 @@ endpoints:
         name: id
         description: 'The team''s id'
         required: true
-        example: 11
+        example: 8
         type: integer
     queryParameters: []
     bodyParameters:
@@ -83,7 +83,7 @@ endpoints:
         name: name
         description: 'The team''s name'
         required: true
-        example: et
+        example: enim
         type: string
     responses: []
     responseFields: []
@@ -103,9 +103,43 @@ endpoints:
         name: id
         description: 'The team''s id'
         required: true
-        example: 11
+        example: 16
         type: integer
     queryParameters: []
     bodyParameters: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/team/{id}/admin'
+    metadata:
+      title: 'Manage the admin status of a team user'
+      description: ''
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The team''s id'
+        required: true
+        example: 4
+        type: integer
+    queryParameters: []
+    bodyParameters:
+      userId:
+        name: userId
+        description: 'The user''s id to manage'
+        required: true
+        example: 16
+        type: integer
+      admin:
+        name: admin
+        description: 'The new user''s status'
+        required: true
+        example: false
+        type: boolean
     responses: []
     responseFields: []

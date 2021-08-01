@@ -19,5 +19,6 @@ Route::middleware(['auth:sanctum', 'isTeamMember'])->group(function () {
 
 Route::middleware(['auth:sanctum', 'isTeamAdmin'])->group(function () {
     Route::put('/team/{id}', [TeamController::class, 'update']);
+    Route::put('/team/{id}/admin', [TeamController::class, 'manageAdmin']);
     Route::delete('/team/{id}', [TeamController::class, 'delete']);
 });

@@ -18,7 +18,7 @@ class EnsureIsTeamAdmin
     {
         $user = $request->user();
         foreach ($user->teams as $team) {
-            if ($team->id === intval($request->route('id')) && 1 === $team->pivot->admin) {
+            if ($team->id === intval($request->route('id')) && true === $team->pivot->admin) {
                 return $next($request);
                 exit;
             }

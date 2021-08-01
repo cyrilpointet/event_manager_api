@@ -208,6 +208,40 @@
 			"response": []
 		},
 		{
+			"name": "Team Manage admin",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\": 3,\n    \"admin\": false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/team/1/admin",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"team",
+						"1",
+						"admin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Team delete",
 			"request": {
 				"method": "DELETE",

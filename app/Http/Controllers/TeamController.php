@@ -77,12 +77,60 @@ class TeamController extends Controller
         $team = Team::find($id);
         if (null === $team) {
             return response([
-                "message" => "Groupe inconnu"
+                "message" => "Unknown team"
             ], 404);
         }
         $team->name = $request->name;
         $team->save();
 
+        $team->users;
+
+        return response($team, 200);
+    }
+
+    /**
+     * Manage the admin status of a team user
+     * @urlParam id int required The team's id
+     * @bodyParam userId int required The user's id to manage
+     * @bodyParam admin boolean required The new user's status
+     */
+    public function manageAdmin(Request $request, $id)
+    {
+        try {
+            $request->validate([
+                'userId' => 'required',
+                'admin' => 'required',
+            ]);
+        } catch (\Exception $e) {
+            return response([
+                'message' => ['Invalid or missing fields']
+            ], 403);
+        }
+
+        $team = Team::find($id);
+        if (null === $team) {
+            return response([
+                "message" => "Unknown team"
+            ], 404);
+        }
+
+        $adminCount = 0;
+        foreach ($team->users as $elem) {
+            if (true === $elem->pivot->admin) {
+                $adminCount++;
+            }
+        }
+        if (2 > $adminCount && false === $request->admin) {
+            return response([
+                "message" => "Team must have at least one admin"
+            ], 403);
+        }
+
+        $team->users()->updateExistingPivot($request->userId, [
+            'admin' => $request->admin,
+        ]);
+
+        $team = Team::find($id);
         $team->users;
 
         return response($team, 200);

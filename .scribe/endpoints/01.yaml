@@ -21,19 +21,19 @@ endpoints:
         name: name
         description: 'The user''s nickname'
         required: true
-        example: qui
+        example: repudiandae
         type: string
       email:
         name: email
         description: 'The user''s email. Must be unique.'
         required: true
-        example: consequatur
+        example: quis
         type: string
       password:
         name: password
         description: 'The user''s password'
         required: true
-        example: ab
+        example: rerum
         type: string
     responses: []
     responseFields: []
@@ -55,13 +55,13 @@ endpoints:
         name: email
         description: 'The user''s email.'
         required: true
-        example: veniam
+        example: magni
         type: string
       password:
         name: password
         description: 'The user''s password'
         required: true
-        example: accusamus
+        example: tempore
         type: string
     responses: []
     responseFields: []
