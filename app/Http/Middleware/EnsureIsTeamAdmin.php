@@ -25,6 +25,6 @@ class EnsureIsTeamAdmin
         }
         return response([
             'message' => ['User is not a team administrator']
-        ], 401);
+        ], 403);
     }
 }

@@ -29,13 +29,13 @@ endpoints:
         name: email
         description: 'The user''s email. Must be unique.'
         required: true
-        example: quis
+        example: tenetur
         type: string
       password:
         name: password
         description: 'The user''s password'
         required: true
-        example: rerum
+        example: dicta
         type: string
     responses: []
     responseFields: []
@@ -57,13 +57,13 @@ endpoints:
         name: email
         description: 'The user''s email.'
         required: true
-        example: magni
+        example: deleniti
         type: string
       password:
         name: password
         description: 'The user''s password'
         required: true
-        example: tempore
+        example: nam
         type: string
     responses: []
     responseFields: []
@@ -73,6 +73,30 @@ endpoints:
     uri: api/user
     metadata:
       title: 'Get a user by its token'
+      description: ''
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: api/user/name
+    metadata:
+      title: 'Get users by name or email'
       description: ''
       authenticated: false
     headers:

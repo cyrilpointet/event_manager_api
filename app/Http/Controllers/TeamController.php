@@ -26,7 +26,7 @@ class TeamController extends Controller
         } catch (\Exception $e) {
             return response([
                 'message' => ['Invalid or missing fields']
-            ], 403);
+            ], 400);
         }
 
         $team = Team::create([
@@ -58,6 +58,25 @@ class TeamController extends Controller
     }
 
     /**
+     * Get teams by name
+     * @bodyParam name string required The team's name
+     */
+    public function getTeamsByName(Request $request)
+    {
+        try {
+            $request->validate([
+                'name' => 'required',
+            ]);
+        } catch (\Exception $e) {
+            return response([
+                'message' => ['Invalid or missing fields']
+            ], 400);
+        }
+
+        return Team::where('name', 'like', '%' . $request->name . '%')->get();
+    }
+
+    /**
      * Update a team
      * @urlParam id int required  The team's id
      * @bodyParam name string required The team's name
@@ -71,7 +90,7 @@ class TeamController extends Controller
         } catch (\Exception $e) {
             return response([
                 'message' => ['Invalid or missing fields']
-            ], 403);
+            ], 400);
         }
 
         $team = Team::find($id);
@@ -104,7 +123,7 @@ class TeamController extends Controller
         } catch (\Exception $e) {
             return response([
                 'message' => ['Invalid or missing fields']
-            ], 403);
+            ], 400);
         }
 
         $team = Team::find($id);

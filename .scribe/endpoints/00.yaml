@@ -19,7 +19,7 @@ endpoints:
         name: id
         description: 'The team''s id'
         required: true
-        example: 11
+        example: 13
         type: integer
     queryParameters: []
     bodyParameters: []
@@ -53,7 +53,7 @@ endpoints:
         name: name
         description: 'The team''s name'
         required: true
-        example: ipsum
+        example: rem
         type: string
     responses: []
     responseFields: []
@@ -73,7 +73,7 @@ endpoints:
         name: id
         description: 'The team''s id'
         required: true
-        example: 8
+        example: 9
         type: integer
     queryParameters: []
     bodyParameters:
@@ -81,7 +81,7 @@ endpoints:
         name: name
         description: 'The team''s name'
         required: true
-        example: enim
+        example: adipisci
         type: string
     responses: []
     responseFields: []
@@ -101,7 +101,7 @@ endpoints:
         name: id
         description: 'The team''s id'
         required: true
-        example: 16
+        example: 8
         type: integer
     queryParameters: []
     bodyParameters: []
@@ -123,7 +123,7 @@ endpoints:
         name: id
         description: 'The team''s id'
         required: true
-        example: 4
+        example: 1
         type: integer
     queryParameters: []
     bodyParameters:
@@ -131,7 +131,7 @@ endpoints:
         name: userId
         description: 'The user''s id to manage'
         required: true
-        example: 16
+        example: 10
         type: integer
       admin:
         name: admin
@@ -140,4 +140,28 @@ endpoints:
         example: false
         type: boolean
     responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: api/team/name
+    metadata:
+      title: 'Get teams by name'
+      description: ''
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
     responseFields: []

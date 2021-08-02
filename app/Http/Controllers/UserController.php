@@ -30,7 +30,7 @@ class UserController extends Controller
         } catch (\Exception $e) {
             return response([
                 'message' => ['Invalid or missing fields']
-            ], 401);
+            ], 400);
         }
 
         $testExist = User::where('email', $request->email)->first();
@@ -104,5 +104,24 @@ class UserController extends Controller
         $user = $request->user();
         $user->teams;
         return $user;
+    }
+
+    /**
+     * Get users by name or email
+     * @bodyParam name string required The team's name
+     */
+    public function getUserByNameOrEmail(Request $request)
+    {
+        try {
+            $request->validate([
+                'name' => 'required',
+            ]);
+        } catch (\Exception $e) {
+            return response([
+                'message' => ['Invalid or missing fields']
+            ], 401);
+        }
+
+        return User::where('name', 'like', '%' . $request->name . '%')->orWhere('email', 'like', '%' . $request->name . '%')->take(10)->get();
     }
 }

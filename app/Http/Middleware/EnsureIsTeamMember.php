@@ -22,7 +22,7 @@ class EnsureIsTeamMember
         if (0 === count($teams)) {
             return response([
                 'message' => ['User is not a team member']
-            ], 401);
+            ], 403);
         }
         return $next($request);
     }
