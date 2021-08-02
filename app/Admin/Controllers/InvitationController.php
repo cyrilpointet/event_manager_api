@@ -2,21 +2,20 @@
 
 namespace App\Admin\Controllers;
 
-use App\Models\Team;
-use App\Models\User;
+use App\Models\Invitation;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
 
-class TeamController extends AdminController
+class InvitationController extends AdminController
 {
     /**
      * Title for current resource.
      *
      * @var string
      */
-    protected $title = 'Team';
+    protected $title = 'Invitation';
 
     /**
      * Make a grid builder.
@@ -25,10 +24,15 @@ class TeamController extends AdminController
      */
     protected function grid()
     {
-        $grid = new Grid(new Team());
+        $grid = new Grid(new Invitation());
 
         $grid->column('id', __('Id'));
-        $grid->column('name', __('Name'));
+        $grid->column('team_id', __('Team id'));
+        $grid->column('user_email', __('User email'));
+
+        $grid->is_from_team()->display(function ($isFromTeam) {
+            return $isFromTeam ? "yes" : "no";
+        });
         $grid->created_at()->display(function ($rawDate) {
             $date = date_create($rawDate);
             return date_format($date, 'd-m-Y H:i');
@@ -37,6 +41,8 @@ class TeamController extends AdminController
             $date = date_create($rawDate);
             return date_format($date, 'd-m-Y H:i');
         });
+
+        $grid->disableCreateButton();
 
         return $grid;
     }
@@ -49,22 +55,17 @@ class TeamController extends AdminController
      */
     protected function detail($id)
     {
-        $show = new Show(Team::findOrFail($id));
+        $show = new Show(Invitation::findOrFail($id));
 
         $show->field('id', __('Id'));
-        $show->field('name', __('Name'));
-
-        $show->users('Members', function ($user) {
-            $user->resource('/admin/users');
-            $user->id();
-            $user->name();
-            $user->pivot('Admin')->display(function ($userPivot) {
-                return $userPivot['admin'] ? "yes" : "no";
-            });
-        });
-
         $show->field('created_at', __('Created at'));
         $show->field('updated_at', __('Updated at'));
+        $show->field('team_id', __('Team id'));
+        $show->field('user_email', __('User email'));
+        //$show->field('is_from_team', __('Is from team'));
+        $show->is_from_team()->as(function ($isFromTeam) {
+            return $isFromTeam ? "yes" : "no";
+        });
 
         return $show;
     }
@@ -76,11 +77,11 @@ class TeamController extends AdminController
      */
     protected function form()
     {
-        $form = new Form(new Team());
+        $form = new Form(new Invitation());
 
-        $form->text('name', __('Name'));
-
-        $form->multipleSelect('users','User')->options(User::all()->pluck('name','id'));
+//        $form->number('team_id', __('Team id'));
+//        $form->text('user_email', __('User email'));
+//        $form->switch('is_from_team', __('Is from team'));
 
         return $form;
     }
