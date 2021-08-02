@@ -18,30 +18,30 @@ class TeamsTableSeeder extends Seeder
         $team_1 = Team::create([
             'name' => 'testGroupNoToto 1'
         ]);
-        $team_1->users()->attach(1, ['admin' => true]);
-        $team_1->users()->attach(3, ['admin' => true]);
-        $team_1->users()->attach(2);
+        $team_1->members()->attach(1, ['admin' => true]);
+        $team_1->members()->attach(3, ['admin' => true]);
+        $team_1->members()->attach(2);
         $team_1->save();
 
         $team_2 = Team::create([
             'name' => 'testGroupNoToto 2'
         ]);
-        $team_2->users()->attach(2, ['admin' => true]);
-        $team_2->users()->attach(3);
+        $team_2->members()->attach(2, ['admin' => true]);
+        $team_2->members()->attach(3);
         $team_2->save();
 
         $team_3 = Team::create([
             'name' => 'testGroupNoToto 3'
         ]);
-        $team_3->users()->attach(7, ['admin' => true]);
-        $team_3->users()->attach(8);
+        $team_3->members()->attach(7, ['admin' => true]);
+        $team_3->members()->attach(8);
         $team_3->save();
 
         $team_4 = Team::create([
             'name' => 'testGroupNoToto 4'
         ]);
-        $team_4->users()->attach(7, ['admin' => true]);
-        $team_4->users()->attach(8);
+        $team_4->members()->attach(7, ['admin' => true]);
+        $team_4->members()->attach(8);
         $team_4->save();
     }
 }

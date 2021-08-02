@@ -21,12 +21,17 @@ class Team extends Model
         'name',
     ];
 
-    public function users()
+    public function members()
     {
         return $this->belongsToMany(
             User::class,
             'teams_users',
             'team_id',
             'user_id')->withPivot('admin')->using('App\Models\TeamUsersPivot');
+    }
+
+    public function invitations()
+    {
+        return $this->hasMany(Invitation::class);
     }
 }

@@ -34,8 +34,9 @@ class TeamController extends Controller
         ]);
         $user = $request->user();
 
-        $team->users()->attach($user->id, ['admin' => true]);
-        $team->users;
+        $team->members()->attach($user->id, ['admin' => true]);
+        $team->members;
+        $team->invitations;
 
         return $team;
     }
@@ -52,7 +53,8 @@ class TeamController extends Controller
                 "message" => "Groupe inconnu"
             ], 404);
         }
-        $team->users;
+        $team->members;
+        $team->invitations;
 
         return response($team, 200);
     }
@@ -102,7 +104,8 @@ class TeamController extends Controller
         $team->name = $request->name;
         $team->save();
 
-        $team->users;
+        $team->members;
+        $team->invitations;
 
         return response($team, 200);
     }
@@ -134,7 +137,7 @@ class TeamController extends Controller
         }
 
         $adminCount = 0;
-        foreach ($team->users as $elem) {
+        foreach ($team->members as $elem) {
             if (true === $elem->pivot->admin) {
                 $adminCount++;
             }
@@ -145,12 +148,13 @@ class TeamController extends Controller
             ], 403);
         }
 
-        $team->users()->updateExistingPivot($request->userId, [
+        $team->members()->updateExistingPivot($request->userId, [
             'admin' => $request->admin,
         ]);
 
         $team = Team::find($id);
-        $team->users;
+        $team->members;
+        $team->invitations;
 
         return response($team, 200);
     }

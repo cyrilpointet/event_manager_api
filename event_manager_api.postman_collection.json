@@ -108,6 +108,9 @@
 		},
 		{
 			"name": "User get multiple by name or email",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"method": "GET",
 				"header": [
@@ -117,13 +120,23 @@
 						"type": "text"
 					}
 				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"User\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
 				"url": {
-					"raw": "{{base_url}}/user",
+					"raw": "{{base_url}}/user/name",
 					"host": [
 						"{{base_url}}"
 					],
 					"path": [
-						"user"
+						"user",
+						"name"
 					]
 				}
 			},
@@ -174,9 +187,42 @@
 			"response": []
 		},
 		{
-			"name": "Team Show by Id",
+			"name": "Team Update",
 			"request": {
-				"method": "GET",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"New Team Name\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/team/{{team_id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"team",
+						"{{team_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Team delete",
+			"request": {
+				"method": "DELETE",
 				"header": [
 					{
 						"key": "Authorization",
@@ -234,9 +280,9 @@
 			"response": []
 		},
 		{
-			"name": "Team Update",
+			"name": "Team Show by Id",
 			"request": {
-				"method": "PUT",
+				"method": "GET",
 				"header": [
 					{
 						"key": "Authorization",
@@ -244,23 +290,14 @@
 						"type": "text"
 					}
 				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"name\": \"New Team Name\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
 				"url": {
-					"raw": "{{base_url}}/team/{{team_id}}",
+					"raw": "{{base_url}}/team/1",
 					"host": [
 						"{{base_url}}"
 					],
 					"path": [
 						"team",
-						"{{team_id}}"
+						"1"
 					]
 				}
 			},
@@ -295,30 +332,6 @@
 						"team",
 						"1",
 						"admin"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Team delete",
-			"request": {
-				"method": "DELETE",
-				"header": [
-					{
-						"key": "Authorization",
-						"value": "Bearer {{token}}",
-						"type": "text"
-					}
-				],
-				"url": {
-					"raw": "{{base_url}}/team/{{team_id}}",
-					"host": [
-						"{{base_url}}"
-					],
-					"path": [
-						"team",
-						"{{team_id}}"
 					]
 				}
 			},
