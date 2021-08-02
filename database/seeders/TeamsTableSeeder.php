@@ -27,6 +27,7 @@ class TeamsTableSeeder extends Seeder
             'name' => 'testGroupNoToto 2'
         ]);
         $team_2->members()->attach(2, ['admin' => true]);
+        $team_2->members()->attach(1);
         $team_2->members()->attach(3);
         $team_2->save();
 

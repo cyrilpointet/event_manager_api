@@ -19,7 +19,7 @@ endpoints:
         name: id
         description: 'The team''s id'
         required: true
-        example: 13
+        example: 20
         type: integer
     queryParameters: []
     bodyParameters: []
@@ -53,7 +53,7 @@ endpoints:
         name: name
         description: 'The team''s name'
         required: true
-        example: rem
+        example: asperiores
         type: string
     responses: []
     responseFields: []
@@ -73,7 +73,7 @@ endpoints:
         name: id
         description: 'The team''s id'
         required: true
-        example: 9
+        example: 16
         type: integer
     queryParameters: []
     bodyParameters:
@@ -81,7 +81,7 @@ endpoints:
         name: name
         description: 'The team''s name'
         required: true
-        example: adipisci
+        example: enim
         type: string
     responses: []
     responseFields: []
@@ -101,7 +101,7 @@ endpoints:
         name: id
         description: 'The team''s id'
         required: true
-        example: 8
+        example: 16
         type: integer
     queryParameters: []
     bodyParameters: []
@@ -123,15 +123,15 @@ endpoints:
         name: id
         description: 'The team''s id'
         required: true
-        example: 1
+        example: 16
         type: integer
     queryParameters: []
     bodyParameters:
-      userId:
-        name: userId
+      id:
+        name: id
         description: 'The user''s id to manage'
         required: true
-        example: 10
+        example: 8
         type: integer
       admin:
         name: admin
@@ -164,4 +164,94 @@ endpoints:
           content-type: application/json
           access-control-allow-origin: '*'
         description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/team/{id}/invitation'
+    metadata:
+      title: 'Create an invitation from a team'
+      description: ''
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The team''s id'
+        required: true
+        example: 9
+        type: integer
+    queryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'an email'
+        required: true
+        example: quae
+        type: string
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/team/{id}/invitation'
+    metadata:
+      title: 'Manage an invitation sent to a team by a user'
+      description: ''
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The team''s id'
+        required: true
+        example: 2
+        type: integer
+    queryParameters: []
+    bodyParameters:
+      id:
+        name: id
+        description: 'The invitation''s id'
+        required: true
+        example: 19
+        type: integer
+      status:
+        name: status
+        description: 'an email'
+        required: true
+        example: true
+        type: boolean
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/team/{id}/member'
+    metadata:
+      title: 'Remove a member from team'
+      description: ''
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The team''s id'
+        required: true
+        example: 17
+        type: integer
+    queryParameters: []
+    bodyParameters:
+      id:
+        name: id
+        description: 'The user''s id to remove'
+        required: true
+        example: 3
+        type: integer
+    responses: []
     responseFields: []

@@ -62,7 +62,6 @@ class InvitationController extends AdminController
         $show->field('updated_at', __('Updated at'));
         $show->field('team_id', __('Team id'));
         $show->field('user_email', __('User email'));
-        //$show->field('is_from_team', __('Is from team'));
         $show->is_from_team()->as(function ($isFromTeam) {
             return $isFromTeam ? "yes" : "no";
         });
@@ -78,10 +77,6 @@ class InvitationController extends AdminController
     protected function form()
     {
         $form = new Form(new Invitation());
-
-//        $form->number('team_id', __('Team id'));
-//        $form->text('user_email', __('User email'));
-//        $form->switch('is_from_team', __('Is from team'));
 
         return $form;
     }

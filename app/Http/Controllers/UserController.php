@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Team;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -111,7 +112,7 @@ class UserController extends Controller
 
     /**
      * Get users by name or email
-     * @bodyParam name string required The team's name
+     * @bodyParam name string required The user's name or email
      */
     public function getUserByNameOrEmail(Request $request)
     {
@@ -126,5 +127,33 @@ class UserController extends Controller
         }
 
         return User::where('name', 'like', '%' . $request->name . '%')->orWhere('email', 'like', '%' . $request->name . '%')->take(10)->get();
+    }
+
+    /**
+     * Leave a team
+     * @urlParam id int required  The team's id
+     */
+    public function leaveTeam(Request $request, $id) {
+        $user = $request->user();
+        foreach ($user->teams as $team) {
+            if ($team->id === intval($request->route('id')) && true === $team->pivot->admin) {
+                return response([
+                    "message" => "Can't leave a team when you're admin"
+                ], 403);
+            }
+        }
+
+        $team = Team::find($id);
+        if (null === $team) {
+            return response([
+                "message" => "Unkwown team"
+            ], 404);
+        }
+
+        $team->members()->detach($user->id);
+
+        return response([
+            "message" => "Team leaved"
+        ], 200);
     }
 }

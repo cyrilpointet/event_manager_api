@@ -107,6 +107,31 @@
 			"response": []
 		},
 		{
+			"name": "User Leave Team",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/user/team/2",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"user",
+						"team",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "User get multiple by name or email",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
@@ -304,6 +329,74 @@
 			"response": []
 		},
 		{
+			"name": "Team Send invitation",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"user_email\": \"user9@user.user\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/team/1/invitation",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"team",
+						"1",
+						"invitation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Team Manage invitation",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 2,\n    \"status\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/team/1/invitation",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"team",
+						"1",
+						"invitation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Team Manage admin",
 			"request": {
 				"method": "PUT",
@@ -316,7 +409,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"userId\": 3,\n    \"admin\": false\n}",
+					"raw": "{\n    \"id\": 3,\n    \"admin\": false\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -332,6 +425,40 @@
 						"team",
 						"1",
 						"admin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Team remove member",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/team/1/member",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"team",
+						"1",
+						"member"
 					]
 				}
 			},

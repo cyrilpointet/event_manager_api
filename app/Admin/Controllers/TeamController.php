@@ -54,7 +54,7 @@ class TeamController extends AdminController
         $show->field('id', __('Id'));
         $show->field('name', __('Name'));
 
-        $show->users('Members', function ($user) {
+        $show->members('Members', function ($user) {
             $user->resource('/admin/users');
             $user->id();
             $user->name();
