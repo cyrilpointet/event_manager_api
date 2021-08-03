@@ -37,6 +37,7 @@ class TeamController extends Controller
         $team->members()->attach($user->id, ['admin' => true]);
         $team->members;
         $team->invitations;
+        $team->happenings;
 
         return $team;
     }
@@ -55,6 +56,7 @@ class TeamController extends Controller
         }
         $team->members;
         $team->invitations;
+        $team->happenings;
 
         return response($team, 200);
     }
@@ -106,6 +108,7 @@ class TeamController extends Controller
 
         $team->members;
         $team->invitations;
+        $team->happenings;
 
         return response($team, 200);
     }
@@ -155,6 +158,7 @@ class TeamController extends Controller
         $team = Team::find($id);
         $team->members;
         $team->invitations;
+        $team->happenings;
 
         return response($team, 200);
     }

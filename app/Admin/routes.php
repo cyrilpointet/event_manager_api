@@ -15,4 +15,5 @@ Route::group([
     $router->resource('users', UserController::class);
     $router->resource('teams', TeamController::class);
     $router->resource('invitations', InvitationController::class);
+    $router->resource('happenings', HappeningController::class);
 });

@@ -21,7 +21,7 @@ endpoints:
         name: id
         description: 'The team''s id'
         required: true
-        example: 13
+        example: 2
         type: integer
     queryParameters: []
     bodyParameters: []
@@ -55,7 +55,7 @@ endpoints:
         name: name
         description: 'The team''s name'
         required: true
-        example: quaerat
+        example: nulla
         type: string
     responses: []
     responseFields: []
@@ -75,7 +75,7 @@ endpoints:
         name: id
         description: 'The team''s id'
         required: true
-        example: 12
+        example: 5
         type: integer
     queryParameters: []
     bodyParameters:
@@ -83,7 +83,7 @@ endpoints:
         name: name
         description: 'The team''s name'
         required: true
-        example: id
+        example: consequatur
         type: string
     responses: []
     responseFields: []
@@ -103,7 +103,7 @@ endpoints:
         name: id
         description: 'The team''s id'
         required: true
-        example: 5
+        example: 11
         type: integer
     queryParameters: []
     bodyParameters: []
@@ -125,7 +125,7 @@ endpoints:
         name: id
         description: 'The team''s id'
         required: true
-        example: 9
+        example: 16
         type: integer
     queryParameters: []
     bodyParameters:
@@ -133,13 +133,13 @@ endpoints:
         name: id
         description: 'The user''s id to manage'
         required: true
-        example: 14
+        example: 8
         type: integer
       admin:
         name: admin
         description: 'The new user''s status'
         required: true
-        example: false
+        example: true
         type: boolean
     responses: []
     responseFields: []
@@ -183,7 +183,7 @@ endpoints:
         name: id
         description: 'The team''s id'
         required: true
-        example: 10
+        example: 2
         type: integer
     queryParameters: []
     bodyParameters:
@@ -191,7 +191,7 @@ endpoints:
         name: email
         description: 'an email'
         required: true
-        example: sed
+        example: rerum
         type: string
     responses: []
     responseFields: []
@@ -211,7 +211,7 @@ endpoints:
         name: id
         description: 'The team''s id'
         required: true
-        example: 19
+        example: 13
         type: integer
     queryParameters: []
     bodyParameters:
@@ -219,7 +219,7 @@ endpoints:
         name: id
         description: 'The invitation''s id'
         required: true
-        example: 13
+        example: 19
         type: integer
       status:
         name: status
@@ -245,7 +245,7 @@ endpoints:
         name: id
         description: 'The team''s id'
         required: true
-        example: 20
+        example: 12
         type: integer
     queryParameters: []
     bodyParameters:
@@ -253,7 +253,7 @@ endpoints:
         name: id
         description: 'The user''s id to remove'
         required: true
-        example: 16
+        example: 14
         type: integer
     responses: []
     responseFields: []

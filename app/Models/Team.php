@@ -34,4 +34,9 @@ class Team extends Model
     {
         return $this->hasMany(Invitation::class);
     }
+
+    public function happenings()
+    {
+        return $this->hasMany(Happening::class);
+    }
 }

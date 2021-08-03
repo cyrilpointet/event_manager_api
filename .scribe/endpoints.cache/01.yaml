@@ -23,19 +23,19 @@ endpoints:
         name: name
         description: 'The user''s nickname'
         required: true
-        example: magnam
+        example: voluptas
         type: string
       email:
         name: email
         description: 'The user''s email. Must be unique.'
         required: true
-        example: quibusdam
+        example: adipisci
         type: string
       password:
         name: password
         description: 'The user''s password'
         required: true
-        example: nihil
+        example: voluptas
         type: string
     responses: []
     responseFields: []
@@ -57,7 +57,7 @@ endpoints:
         name: id
         description: 'The team''s id to join'
         required: true
-        example: 14
+        example: 3
         type: integer
     responses: []
     responseFields: []
@@ -79,13 +79,13 @@ endpoints:
         name: email
         description: 'The user''s email.'
         required: true
-        example: eaque
+        example: accusamus
         type: string
       password:
         name: password
         description: 'The user''s password'
         required: true
-        example: incidunt
+        example: dicta
         type: string
     responses: []
     responseFields: []
@@ -153,7 +153,7 @@ endpoints:
         name: id
         description: 'The team''s id'
         required: true
-        example: 19
+        example: 8
         type: integer
     queryParameters: []
     bodyParameters: []
