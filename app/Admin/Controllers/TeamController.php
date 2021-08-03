@@ -80,7 +80,7 @@ class TeamController extends AdminController
 
         $form->text('name', __('Name'));
 
-        $form->multipleSelect('users','User')->options(User::all()->pluck('name','id'));
+        $form->multipleSelect('members','members')->options(User::all()->pluck('name','id'));
 
         return $form;
     }

@@ -168,6 +168,73 @@
 			"response": []
 		},
 		{
+			"name": "User send invitation",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 4\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/user/invitation",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"user",
+						"invitation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "User manage invitation",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"status\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/user/invitation/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"user",
+						"invitation",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Team Create",
 			"event": [
 				{
@@ -341,7 +408,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"user_email\": \"user9@user.user\"\n}",
+					"raw": "{\n    \"email\": \"user9@user.user\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"

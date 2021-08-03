@@ -23,20 +23,42 @@ endpoints:
         name: name
         description: 'The user''s nickname'
         required: true
-        example: necessitatibus
+        example: magnam
         type: string
       email:
         name: email
         description: 'The user''s email. Must be unique.'
         required: true
-        example: rerum
+        example: quibusdam
         type: string
       password:
         name: password
         description: 'The user''s password'
         required: true
-        example: sit
+        example: nihil
         type: string
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: api/user/invitation
+    metadata:
+      title: 'Send invitation to a team from a user'
+      description: ''
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    queryParameters: []
+    bodyParameters:
+      id:
+        name: id
+        description: 'The team''s id to join'
+        required: true
+        example: 14
+        type: integer
     responses: []
     responseFields: []
   -
@@ -57,13 +79,13 @@ endpoints:
         name: email
         description: 'The user''s email.'
         required: true
-        example: ea
+        example: eaque
         type: string
       password:
         name: password
         description: 'The user''s password'
         required: true
-        example: sed
+        example: incidunt
         type: string
     responses: []
     responseFields: []
@@ -131,9 +153,37 @@ endpoints:
         name: id
         description: 'The team''s id'
         required: true
-        example: 5
+        example: 19
         type: integer
     queryParameters: []
     bodyParameters: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/user/invitation/{id}'
+    metadata:
+      title: 'Manage an invitation sent to a user by a team'
+      description: ''
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The invitation''s id'
+        required: true
+        example: 2
+        type: integer
+    queryParameters: []
+    bodyParameters:
+      status:
+        name: status
+        description: 'an email'
+        required: true
+        example: false
+        type: boolean
     responses: []
     responseFields: []

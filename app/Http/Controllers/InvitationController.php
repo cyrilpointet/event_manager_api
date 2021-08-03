@@ -110,4 +110,97 @@ class InvitationController extends Controller
 
         return $team;
     }
+
+    /**
+     * Send invitation to a team from a user
+     * @group User management
+     * @bodyParam id int required The team's id to join
+     */
+    public function createFromUser(Request $request)
+    {
+        try {
+            $request->validate([
+                'id' => 'required',
+            ]);
+        } catch (\Exception $e) {
+            return response([
+                'message' => ['Invalid or missing fields']
+            ], 400);
+        }
+
+        $user = $request->user();
+        $teams = $user->teams()->where('team_id', '=', $request->id)->get();
+        if (0 !== count($teams)) {
+            return response([
+                'message' => 'User is already a member'
+            ], 403);
+        }
+
+        $test = Invitation::where('team_id', '=', $request->id)->where('user_email', '=', $user->email)->get();
+        if (0 !== count($test)) {
+            return response([
+                "message" => "Invitation already exist"
+            ], 403);
+        }
+
+        $invitation = Invitation::create([
+            'team_id' => $request->id,
+            'user_email' => $user->email,
+            'is_from_team' => false
+        ]);
+        $invitation->team;
+
+        return response($invitation, 201);
+    }
+
+    /**
+     * Manage an invitation sent to a user by a team
+     * @group User management
+     * @urlParam id int required The invitation's id
+     * @bodyParam status boolean required an email
+     */
+    public function manageTeamInvitation(Request $request, $id)
+    {
+        try {
+            $request->validate([
+                'status' => 'required',
+            ]);
+        } catch (\Exception $e) {
+            return response([
+                'message' => ['Invalid or missing fields']
+            ], 400);
+        }
+
+        $invitation = Invitation::find($id);
+
+        if (null === $invitation) {
+            return response([
+                "message" => "Unknown invitation"
+            ], 404);
+        }
+
+        $team = Team::find($invitation->team_id);
+        if (null === $team) {
+            return response([
+                "message" => "Unknown team"
+            ], 404);
+        }
+
+        $user = $request->user();
+        if ($user->email !== $invitation->user_email || true !== $invitation->is_from_team) {
+            return response([
+                "message" => "insufficient rights"
+            ], 403);
+        }
+
+        if (true === $request->status) {
+            $team->members()->attach($user->id, ['admin' => false]);
+        }
+        $invitation->delete();
+
+        $user->teams;
+        $user->invitations;
+
+        return $user;
+    }
 }
