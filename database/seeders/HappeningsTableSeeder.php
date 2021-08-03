@@ -19,7 +19,6 @@ class HappeningsTableSeeder extends Seeder
         $end = new \DateTime('2021-11-10 12:21:50');
         $test1 = Happening::create([
             'name' => 'test event 1',
-            //'status_id' => 1,
             'description' => 'description test',
             'place' => 'place test',
             'team_id' => 1,
@@ -33,7 +32,6 @@ class HappeningsTableSeeder extends Seeder
         $end = new \DateTime('2021-04-25 12:21:50');
         $test2 = Happening::create([
             'name' => 'test event 2',
-            //'status_id' => 1,
             'description' => 'description test',
             'place' => 'place test',
             'team_id' => 1,
@@ -45,7 +43,6 @@ class HappeningsTableSeeder extends Seeder
         $end = new \DateTime('2021-11-30 12:21:50');
         $test3 = Happening::create([
             'name' => 'test event group 2',
-            //'status_id' => 1,
             'description' => 'description test',
             'place' => 'place test',
             'team_id' => 2,

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HappeningController;
 use App\Http\Controllers\InvitationController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\UserController;
@@ -30,4 +31,10 @@ Route::middleware(['auth:sanctum', 'isTeamAdmin'])->group(function () {
     Route::delete('/team/{id}', [TeamController::class, 'delete']);
     Route::post('/team/{id}/invitation', [InvitationController::class, 'createFromTeam']);
     Route::put('/team/{id}/invitation', [InvitationController::class, 'manageUserInvitation']);
+    Route::post('/team/{id}/happening', [HappeningController::class, 'create']);
+});
+
+Route::middleware(['auth:sanctum', 'isHappeningAdmin'])->group(function () {
+    Route::get('/happening/{id}', [HappeningController::class, 'show']);
+    Route::put('/happening/{id}', [HappeningController::class, 'update']);
 });
