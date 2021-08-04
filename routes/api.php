@@ -34,7 +34,14 @@ Route::middleware(['auth:sanctum', 'isTeamAdmin'])->group(function () {
     Route::post('/team/{id}/happening', [HappeningController::class, 'create']);
 });
 
-Route::middleware(['auth:sanctum', 'isHappeningAdmin'])->group(function () {
+Route::middleware(['auth:sanctum', 'IsHappeningMember'])->group(function () {
     Route::get('/happening/{id}', [HappeningController::class, 'show']);
+});
+
+Route::middleware(['auth:sanctum', 'isHappeningAdmin'])->group(function () {
     Route::put('/happening/{id}', [HappeningController::class, 'update']);
+    Route::post('/happening/{id}/member', [HappeningController::class, 'addMember']);
+    Route::put('/happening/{id}/member', [HappeningController::class, 'updatePresence']);
+    Route::delete('/happening/{id}/member', [HappeningController::class, 'removeMember']);
+    Route::delete('/happening/{id}', [HappeningController::class, 'delete']);
 });

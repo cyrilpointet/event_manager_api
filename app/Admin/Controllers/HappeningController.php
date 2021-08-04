@@ -3,6 +3,7 @@
 namespace App\Admin\Controllers;
 
 use App\Models\Happening;
+use App\Models\User;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
@@ -36,8 +37,6 @@ class HappeningController extends AdminController
             return date_format($date, 'd-m-Y H:i');
         });
         $grid->column('name', __('Name'));
-        //$grid->column('description', __('Description'));
-        //$grid->column('place', __('Place'));
         $grid->column('status', __('Status'));
         $grid->column('team_id', __('Team id'));
 
@@ -74,6 +73,15 @@ class HappeningController extends AdminController
         $show->field('start_at', __('Start at'));
         $show->field('end_at', __('End at'));
 
+        $show->members('Members', function ($user) {
+            $user->resource('/admin/users');
+            $user->id();
+            $user->name();
+            $user->pivot('Presence')->display(function ($userPivot) {
+                return $userPivot['presence'];
+            });
+        });
+
         return $show;
     }
 
@@ -90,9 +98,12 @@ class HappeningController extends AdminController
         $form->text('description', __('Description'));
         $form->text('place', __('Place'));
         $form->text('status', __('Status'))->default('project');
-        $form->number('team_id', __('Team id'));
+        //$form->number('team_id', __('Team id'));
         $form->datetime('start_at', __('Start at'))->default(date('Y-m-d H:i:s'));
         $form->datetime('end_at', __('End at'))->default(date('Y-m-d H:i:s'));
+
+        $form->multipleSelect('members','members')->options(User::all()->pluck('name','id'));
+
 
         return $form;
     }

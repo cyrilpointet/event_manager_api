@@ -1,14 +1,12 @@
-name: 'Team management'
-description: |-
-
-  APIs for managing teams
+name: 'Happening management'
+description: ''
 endpoints:
   -
     httpMethods:
       - GET
-    uri: 'api/team/{id}'
+    uri: 'api/happening/{id}'
     metadata:
-      title: 'Get a team by id'
+      title: 'Get an Happening'
       description: ''
       authenticated: false
     headers:
@@ -17,250 +15,28 @@ endpoints:
     urlParameters:
       id:
         name: id
-        description: 'The team''s id'
-        required: true
-        example: 6
-        type: integer
-    queryParameters: []
-    bodyParameters: []
-    responses:
-      -
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-    responseFields: []
-  -
-    httpMethods:
-      - POST
-    uri: api/team
-    metadata:
-      title: |-
-        Create a team
-        and set current user as member and admin
-      description: ''
-      authenticated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    queryParameters: []
-    bodyParameters:
-      name:
-        name: name
-        description: 'The team''s name'
-        required: true
-        example: veritatis
-        type: string
-    responses: []
-    responseFields: []
-  -
-    httpMethods:
-      - PUT
-    uri: 'api/team/{id}'
-    metadata:
-      title: 'Update a team'
-      description: ''
-      authenticated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The team''s id'
-        required: true
-        example: 20
-        type: integer
-    queryParameters: []
-    bodyParameters:
-      name:
-        name: name
-        description: 'The team''s name'
-        required: true
-        example: quia
-        type: string
-    responses: []
-    responseFields: []
-  -
-    httpMethods:
-      - DELETE
-    uri: 'api/team/{id}'
-    metadata:
-      title: 'Delete a team'
-      description: ''
-      authenticated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The team''s id'
-        required: true
-        example: 3
-        type: integer
-    queryParameters: []
-    bodyParameters: []
-    responses: []
-    responseFields: []
-  -
-    httpMethods:
-      - PUT
-    uri: 'api/team/{id}/admin'
-    metadata:
-      title: 'Manage the admin status of a team user'
-      description: ''
-      authenticated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The team''s id'
-        required: true
-        example: 10
-        type: integer
-    queryParameters: []
-    bodyParameters:
-      id:
-        name: id
-        description: 'The user''s id to manage'
-        required: true
-        example: 20
-        type: integer
-      admin:
-        name: admin
-        description: 'The new user''s status'
-        required: true
-        example: true
-        type: boolean
-    responses: []
-    responseFields: []
-  -
-    httpMethods:
-      - GET
-    uri: api/team/name
-    metadata:
-      title: 'Get teams by name'
-      description: ''
-      authenticated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    queryParameters: []
-    bodyParameters: []
-    responses:
-      -
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-    responseFields: []
-  -
-    httpMethods:
-      - POST
-    uri: 'api/team/{id}/invitation'
-    metadata:
-      title: 'Create an invitation from a team'
-      description: ''
-      authenticated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The team''s id'
-        required: true
-        example: 12
-        type: integer
-    queryParameters: []
-    bodyParameters:
-      email:
-        name: email
-        description: 'an email'
-        required: true
-        example: odit
-        type: string
-    responses: []
-    responseFields: []
-  -
-    httpMethods:
-      - PUT
-    uri: 'api/team/{id}/invitation'
-    metadata:
-      title: 'Manage an invitation sent to a team by a user'
-      description: ''
-      authenticated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The team''s id'
-        required: true
-        example: 7
-        type: integer
-    queryParameters: []
-    bodyParameters:
-      id:
-        name: id
-        description: 'The invitation''s id'
-        required: true
-        example: 3
-        type: integer
-      status:
-        name: status
-        description: 'an email'
-        required: true
-        example: false
-        type: boolean
-    responses: []
-    responseFields: []
-  -
-    httpMethods:
-      - DELETE
-    uri: 'api/team/{id}/member'
-    metadata:
-      title: 'Remove a member from team'
-      description: ''
-      authenticated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The team''s id'
-        required: true
-        example: 1
-        type: integer
-    queryParameters: []
-    bodyParameters:
-      id:
-        name: id
-        description: 'The user''s id to remove'
+        description: 'The happening id'
         required: true
         example: 18
         type: integer
-    responses: []
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
     responseFields: []
   -
     httpMethods:
-      - POST
-    uri: 'api/team/{id}/happening'
+      - PUT
+    uri: 'api/happening/{id}'
     metadata:
-      title: 'Create a new happening'
+      title: 'Update an happening'
       description: ''
       authenticated: false
     headers:
@@ -269,9 +45,9 @@ endpoints:
     urlParameters:
       id:
         name: id
-        description: 'The team''s id'
+        description: 'The Happening id'
         required: true
-        example: 4
+        example: 14
         type: integer
     queryParameters: []
     bodyParameters:
@@ -279,31 +55,115 @@ endpoints:
         name: name
         description: 'Happening name'
         required: true
-        example: et
+        example: rem
         type: string
       description:
         name: description
         description: 'Happening description'
         required: true
-        example: eum
+        example: nihil
         type: string
       place:
         name: place
         description: 'Happening place'
         required: true
-        example: enim
+        example: ex
+        type: string
+      status:
+        name: status
+        description: 'Happening status: project, validated or canceled'
+        required: true
+        example: nemo
         type: string
       startAt:
         name: startAt
         description: 'Happening start. Date in string'
         required: true
-        example: dolorem
+        example: voluptas
         type: string
       endAt:
         name: endAt
         description: 'Happening end. Date in string'
         required: true
-        example: sunt
+        example: consequatur
         type: string
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/happening/{id}/member'
+    metadata:
+      title: 'Add a member'
+      description: ''
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The happening id'
+        required: true
+        example: 18
+        type: integer
+    queryParameters: []
+    bodyParameters:
+      id:
+        name: id
+        description: 'the user id to be added'
+        required: true
+        example: 17
+        type: integer
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/happening/{id}/member'
+    metadata:
+      title: 'Remove a member'
+      description: ''
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The happening id'
+        required: true
+        example: 8
+        type: integer
+    queryParameters: []
+    bodyParameters:
+      id:
+        name: id
+        description: 'the user id to be added'
+        required: true
+        example: 5
+        type: integer
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/happening/{id}'
+    metadata:
+      title: 'Delete an Happening'
+      description: ''
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The happening id'
+        required: true
+        example: 17
+        type: integer
+    queryParameters: []
+    bodyParameters: []
     responses: []
     responseFields: []

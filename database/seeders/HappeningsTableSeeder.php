@@ -25,8 +25,8 @@ class HappeningsTableSeeder extends Seeder
             'start_at' => $start,
             'end_at' => $end
         ]);
-        //$test1->members()->attach(1);
-        //$test1->members()->attach(2);
+        $test1->members()->attach(1);
+        $test1->members()->attach(2);
 
         $start = new \DateTime('2021-04-25 11:21:50');
         $end = new \DateTime('2021-04-25 12:21:50');
@@ -38,6 +38,8 @@ class HappeningsTableSeeder extends Seeder
             'start_at' => $start,
             'end_at' => $end
         ]);
+        $test2->members()->attach(1);
+        $test2->members()->attach(2);
 
         $start = new \DateTime('2021-11-30 11:21:50');
         $end = new \DateTime('2021-11-30 12:21:50');
@@ -49,6 +51,7 @@ class HappeningsTableSeeder extends Seeder
             'start_at' => $start,
             'end_at' => $end
         ]);
-        //$test3->members()->attach(2);
+        $test3->members()->attach(2);
+        $test3->members()->attach(3);
     }
 }

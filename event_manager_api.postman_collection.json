@@ -486,9 +486,168 @@
 			"response": []
 		},
 		{
+			"name": "Happening add member",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/happening/{{happening_id}}/member",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"happening",
+						"{{happening_id}}",
+						"member"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Happening update member presence",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"presence\": \"yes\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/happening/{{happening_id}}/member",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"happening",
+						"{{happening_id}}",
+						"member"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Happening remove member",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/happening/{{happening_id}}/member",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"happening",
+						"{{happening_id}}",
+						"member"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Happening show by id",
 			"request": {
 				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/happening/{{happening_id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"happening",
+						"{{happening_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Happening delete",
+			"request": {
+				"method": "DELETE",
 				"header": [
 					{
 						"key": "Authorization",

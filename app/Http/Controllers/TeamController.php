@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Team;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 /**
  * @group Team management
@@ -195,9 +196,13 @@ class TeamController extends Controller
         }
 
         $team->members()->detach($request->id);
+        foreach ($team->happenings as $happening) {
+            $happening->members()->detach($request->id);
+        }
 
         $team->members;
         $team->invitations;
+        $team->happenings;
 
         return response($team, 200);
     }

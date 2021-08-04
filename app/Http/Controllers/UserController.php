@@ -107,6 +107,7 @@ class UserController extends Controller
         $user = $request->user();
         $user->teams;
         $user->invitations;
+        $user->happenings;
         return $user;
     }
 

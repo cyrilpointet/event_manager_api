@@ -19,13 +19,21 @@ class Happening extends Model
         'status'
     ];
 
+    protected $casts = [
+        'start_at' => 'datetime',
+        'end_at' => 'datetime',
+    ];
+
     public function team()
     {
         return $this->belongsTo(Team::class);
     }
 
-//    public function members()
-//    {
-//        return $this->belongsToMany(User::class)->withPivot('presence');
-//    }
+    public function members()
+    {
+        return $this->belongsToMany(User::class,
+            'happenings_users',
+            'happening_id',
+            'user_id')->withPivot('presence');
+    }
 }
