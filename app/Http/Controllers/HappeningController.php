@@ -273,6 +273,46 @@ class HappeningController extends Controller
     }
 
     /**
+     * Add a comment
+     * @group Happening management
+     * @urlParam id int required The happening id
+     * @urlParam comment_id int required the comment id to be removed
+     */
+    public function removeComment(Request $request, $id, $comment_id) {
+        $comment = Comment::find($comment_id);
+
+        if ($comment === null) {
+            return response([
+                'message' => 'Unknown comment'
+            ], 404);
+        }
+
+        $happening = Happening::find($id);
+        $teamId = $happening->team->id;
+        $isAdmin = false;
+        $user = $request->user();
+        foreach ($user->teams as $team) {
+            if ($team->id === $teamId && true === $team->pivot->admin) {
+                $isAdmin = true;
+            }
+        }
+
+        if ($isAdmin === false && $user->id !== $comment->user->id) {
+            return response([
+                'message' => 'insufficient rights'
+            ], 403);
+        }
+
+        $comment->delete();
+
+        $happening->team;
+        $happening->members;
+        $happening->comments;
+
+        return response($happening, 200);
+    }
+
+    /**
      * Delete an Happening
      * @group Happening management
      * @urlParam id int required The happening id

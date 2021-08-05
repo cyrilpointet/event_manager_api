@@ -21,19 +21,19 @@ endpoints:
         name: name
         description: 'The user''s nickname'
         required: true
-        example: consectetur
+        example: provident
         type: string
       email:
         name: email
         description: 'The user''s email. Must be unique.'
         required: true
-        example: qui
+        example: veritatis
         type: string
       password:
         name: password
         description: 'The user''s password'
         required: true
-        example: minus
+        example: nesciunt
         type: string
     responses: []
     responseFields: []
@@ -55,7 +55,7 @@ endpoints:
         name: id
         description: 'The team''s id to join'
         required: true
-        example: 2
+        example: 9
         type: integer
     responses: []
     responseFields: []
@@ -77,13 +77,13 @@ endpoints:
         name: email
         description: 'The user''s email.'
         required: true
-        example: quaerat
+        example: cupiditate
         type: string
       password:
         name: password
         description: 'The user''s password'
         required: true
-        example: tenetur
+        example: similique
         type: string
     responses: []
     responseFields: []
@@ -151,7 +151,7 @@ endpoints:
         name: id
         description: 'The team''s id'
         required: true
-        example: 14
+        example: 1
         type: integer
     queryParameters: []
     bodyParameters: []
@@ -173,7 +173,7 @@ endpoints:
         name: id
         description: 'The invitation''s id'
         required: true
-        example: 3
+        example: 4
         type: integer
     queryParameters: []
     bodyParameters:

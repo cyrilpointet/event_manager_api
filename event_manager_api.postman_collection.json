@@ -531,6 +531,32 @@
 			"response": []
 		},
 		{
+			"name": "Happening delete comment",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/happening/1/comment/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"happening",
+						"1",
+						"comment",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
 			"name": "Happening add member",
 			"event": [
 				{

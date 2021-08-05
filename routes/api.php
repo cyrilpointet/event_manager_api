@@ -37,6 +37,7 @@ Route::middleware(['auth:sanctum', 'isTeamAdmin'])->group(function () {
 Route::middleware(['auth:sanctum', 'IsHappeningMember'])->group(function () {
     Route::get('/happening/{id}', [HappeningController::class, 'show']);
     Route::post('/happening/{id}/comment', [HappeningController::class, 'addComment']);
+    Route::delete('/happening/{id}/comment/{comment_id}', [HappeningController::class, 'removeComment']);
 });
 
 Route::middleware(['auth:sanctum', 'isHappeningAdmin'])->group(function () {

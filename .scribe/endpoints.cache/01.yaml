@@ -21,7 +21,7 @@ endpoints:
         name: id
         description: 'The team''s id'
         required: true
-        example: 20
+        example: 2
         type: integer
     queryParameters: []
     bodyParameters: []
@@ -55,7 +55,7 @@ endpoints:
         name: name
         description: 'The team''s name'
         required: true
-        example: facere
+        example: impedit
         type: string
     responses: []
     responseFields: []
@@ -75,7 +75,7 @@ endpoints:
         name: id
         description: 'The team''s id'
         required: true
-        example: 7
+        example: 15
         type: integer
     queryParameters: []
     bodyParameters:
@@ -83,7 +83,7 @@ endpoints:
         name: name
         description: 'The team''s name'
         required: true
-        example: explicabo
+        example: error
         type: string
     responses: []
     responseFields: []
@@ -103,7 +103,7 @@ endpoints:
         name: id
         description: 'The team''s id'
         required: true
-        example: 3
+        example: 10
         type: integer
     queryParameters: []
     bodyParameters: []
@@ -125,7 +125,7 @@ endpoints:
         name: id
         description: 'The team''s id'
         required: true
-        example: 3
+        example: 11
         type: integer
     queryParameters: []
     bodyParameters:
@@ -133,13 +133,13 @@ endpoints:
         name: id
         description: 'The user''s id to manage'
         required: true
-        example: 15
+        example: 7
         type: integer
       admin:
         name: admin
         description: 'The new user''s status'
         required: true
-        example: false
+        example: true
         type: boolean
     responses: []
     responseFields: []
@@ -183,7 +183,7 @@ endpoints:
         name: id
         description: 'The team''s id'
         required: true
-        example: 2
+        example: 10
         type: integer
     queryParameters: []
     bodyParameters:
@@ -191,7 +191,7 @@ endpoints:
         name: email
         description: 'an email'
         required: true
-        example: amet
+        example: quia
         type: string
     responses: []
     responseFields: []
@@ -211,7 +211,7 @@ endpoints:
         name: id
         description: 'The team''s id'
         required: true
-        example: 3
+        example: 4
         type: integer
     queryParameters: []
     bodyParameters:
@@ -219,13 +219,13 @@ endpoints:
         name: id
         description: 'The invitation''s id'
         required: true
-        example: 14
+        example: 13
         type: integer
       status:
         name: status
         description: 'an email'
         required: true
-        example: true
+        example: false
         type: boolean
     responses: []
     responseFields: []
@@ -245,7 +245,7 @@ endpoints:
         name: id
         description: 'The team''s id'
         required: true
-        example: 5
+        example: 6
         type: integer
     queryParameters: []
     bodyParameters:
@@ -253,7 +253,7 @@ endpoints:
         name: id
         description: 'The user''s id to remove'
         required: true
-        example: 6
+        example: 14
         type: integer
     responses: []
     responseFields: []
@@ -273,7 +273,7 @@ endpoints:
         name: id
         description: 'The team''s id'
         required: true
-        example: 12
+        example: 7
         type: integer
     queryParameters: []
     bodyParameters:
@@ -281,31 +281,31 @@ endpoints:
         name: name
         description: 'Happening name'
         required: true
-        example: et
+        example: excepturi
         type: string
       description:
         name: description
         description: 'Happening description'
         required: true
-        example: velit
+        example: alias
         type: string
       place:
         name: place
         description: 'Happening place'
         required: true
-        example: id
+        example: corrupti
         type: string
       startAt:
         name: startAt
         description: 'Happening start. Date in string'
         required: true
-        example: beatae
+        example: veniam
         type: string
       endAt:
         name: endAt
         description: 'Happening end. Date in string'
         required: true
-        example: voluptatem
+        example: eos
         type: string
     responses: []
     responseFields: []

@@ -17,7 +17,7 @@ endpoints:
         name: id
         description: 'The happening id'
         required: true
-        example: 1
+        example: 11
         type: integer
     queryParameters: []
     bodyParameters: []
@@ -47,7 +47,7 @@ endpoints:
         name: id
         description: 'The happening id'
         required: true
-        example: 8
+        example: 18
         type: integer
     queryParameters: []
     bodyParameters:
@@ -55,7 +55,7 @@ endpoints:
         name: presence
         description: 'the user presence: yes|maybe|no'
         required: true
-        example: iusto
+        example: dolores
         type: string
     responses: []
     responseFields: []
@@ -75,7 +75,7 @@ endpoints:
         name: id
         description: 'The Happening id'
         required: true
-        example: 8
+        example: 2
         type: integer
     queryParameters: []
     bodyParameters:
@@ -83,37 +83,37 @@ endpoints:
         name: name
         description: 'Happening name'
         required: true
-        example: ex
+        example: aliquam
         type: string
       description:
         name: description
         description: 'Happening description'
         required: true
-        example: sint
+        example: est
         type: string
       place:
         name: place
         description: 'Happening place'
         required: true
-        example: alias
+        example: nesciunt
         type: string
       status:
         name: status
         description: 'Happening status: project, validated or canceled'
         required: true
-        example: a
+        example: placeat
         type: string
       startAt:
         name: startAt
         description: 'Happening start. Date in string'
         required: true
-        example: incidunt
+        example: vel
         type: string
       endAt:
         name: endAt
         description: 'Happening end. Date in string'
         required: true
-        example: sunt
+        example: rerum
         type: string
     responses: []
     responseFields: []
@@ -133,7 +133,7 @@ endpoints:
         name: id
         description: 'The happening id'
         required: true
-        example: 5
+        example: 1
         type: integer
     queryParameters: []
     bodyParameters:
@@ -141,7 +141,7 @@ endpoints:
         name: id
         description: 'the user id to be added'
         required: true
-        example: 2
+        example: 9
         type: integer
     responses: []
     responseFields: []
@@ -161,7 +161,7 @@ endpoints:
         name: id
         description: 'The happening id'
         required: true
-        example: 15
+        example: 18
         type: integer
     queryParameters: []
     bodyParameters:
@@ -169,7 +169,7 @@ endpoints:
         name: id
         description: 'the user id to be added'
         required: true
-        example: 11
+        example: 10
         type: integer
     responses: []
     responseFields: []
@@ -189,7 +189,7 @@ endpoints:
         name: id
         description: 'The happening id'
         required: true
-        example: 15
+        example: 14
         type: integer
     queryParameters: []
     bodyParameters: []
@@ -211,7 +211,7 @@ endpoints:
         name: id
         description: 'The happening id'
         required: true
-        example: 14
+        example: 6
         type: integer
     queryParameters: []
     bodyParameters:
@@ -219,7 +219,35 @@ endpoints:
         name: text
         description: 'the comment''s content'
         required: true
-        example: in
+        example: qui
         type: string
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/happening/{id}/comment/{comment_id}'
+    metadata:
+      title: 'Add a comment'
+      description: ''
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The happening id'
+        required: true
+        example: 3
+        type: integer
+      comment_id:
+        name: comment_id
+        description: 'the comment id to be removed'
+        required: true
+        example: 2
+        type: integer
+    queryParameters: []
+    bodyParameters: []
     responses: []
     responseFields: []
