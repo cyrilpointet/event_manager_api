@@ -98,12 +98,10 @@ class HappeningController extends AdminController
         $form->text('description', __('Description'));
         $form->text('place', __('Place'));
         $form->text('status', __('Status'))->default('project');
-        //$form->number('team_id', __('Team id'));
         $form->datetime('start_at', __('Start at'))->default(date('Y-m-d H:i:s'));
         $form->datetime('end_at', __('End at'))->default(date('Y-m-d H:i:s'));
 
         $form->multipleSelect('members','members')->options(User::all()->pluck('name','id'));
-
 
         return $form;
     }

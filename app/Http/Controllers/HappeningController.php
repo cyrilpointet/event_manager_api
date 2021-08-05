@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Comment;
 use App\Models\Happening;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -50,6 +51,7 @@ class HappeningController extends Controller
 
         $happening->team;
         $happening->members;
+        $happening->comments;
 
         return response($happening, 200);
     }
@@ -99,6 +101,7 @@ class HappeningController extends Controller
 
         $happening->team;
         $happening->members;
+        $happening->comments;
 
         return response($happening, 200);
     }
@@ -118,6 +121,7 @@ class HappeningController extends Controller
         }
         $happening->team;
         $happening->members;
+        $happening->comments;
 
         return $happening;
     }
@@ -168,10 +172,17 @@ class HappeningController extends Controller
         $happening = Happening::find($id);
         $happening->team;
         $happening->members;
+        $happening->comments;
 
         return response($happening, 200);
     }
 
+    /**
+     * update user presence
+     * @group Happening management
+     * @urlParam id int required The happening id
+     * @bodyParam presence string required the user presence: yes|maybe|no
+     */
     public function updatePresence(Request $request) {
         try {
             $request->validate([
@@ -197,6 +208,7 @@ class HappeningController extends Controller
 
         $happening->team;
         $happening->members;
+        $happening->comments;
 
         return $happening;
     }
@@ -223,8 +235,41 @@ class HappeningController extends Controller
 
         $happening->team;
         $happening->members;
+        $happening->comments;
 
         return response($happening, 200);
+    }
+
+    /**
+     * Add a comment
+     * @group Happening management
+     * @urlParam id int required The happening id
+     * @bodyParam text string required the comment's content
+     */
+    public function addComment(Request $request) {
+        try {
+            $request->validate([
+                'text' => 'required',
+            ]);
+        } catch (\Exception $e) {
+            return response([
+                'message' => ['Invalid or missing fields']
+            ], 400);
+        }
+
+        $user = $request->user();
+        Comment::create([
+            'content' => $request->text,
+            'happening_id' => intval($request->route('id')),
+            'user_id' => $user->id
+        ]);
+
+        $happening = Happening::find($request->route('id'));
+        $happening->team;
+        $happening->members;
+        $happening->comments;
+
+        return response($happening, 201);
     }
 
     /**

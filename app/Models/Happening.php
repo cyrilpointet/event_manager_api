@@ -36,4 +36,9 @@ class Happening extends Model
             'happening_id',
             'user_id')->withPivot('presence');
     }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
+    }
 }

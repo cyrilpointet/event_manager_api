@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
         $this->call(TeamsTableSeeder::class);
         $this->call(InvitationsTableSeeder::class);
         $this->call(HappeningsTableSeeder::class);
+        $this->call(CommentsTableSeeder::class);
         Schema::enableForeignKeyConstraints();
     }
 }

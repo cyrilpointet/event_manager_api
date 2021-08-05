@@ -2,21 +2,20 @@
 
 namespace App\Admin\Controllers;
 
-use App\Models\Team;
-use App\Models\User;
+use App\Models\Comment;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Form;
 use Encore\Admin\Grid;
 use Encore\Admin\Show;
 
-class TeamController extends AdminController
+class CommentController extends AdminController
 {
     /**
      * Title for current resource.
      *
      * @var string
      */
-    protected $title = 'Team';
+    protected $title = 'Comment';
 
     /**
      * Make a grid builder.
@@ -25,10 +24,9 @@ class TeamController extends AdminController
      */
     protected function grid()
     {
-        $grid = new Grid(new Team());
+        $grid = new Grid(new Comment());
 
         $grid->column('id', __('Id'));
-        $grid->column('name', __('Name'));
         $grid->created_at()->display(function ($rawDate) {
             $date = date_create($rawDate);
             return date_format($date, 'd-m-Y H:i');
@@ -37,6 +35,9 @@ class TeamController extends AdminController
             $date = date_create($rawDate);
             return date_format($date, 'd-m-Y H:i');
         });
+        $grid->column('content', __('Content'));
+        $grid->column('happening_id', __('Happening id'));
+        $grid->column('user_id', __('User id'));
 
         return $grid;
     }
@@ -49,23 +50,18 @@ class TeamController extends AdminController
      */
     protected function detail($id)
     {
-        $show = new Show(Team::findOrFail($id));
+        $show = new Show(Comment::findOrFail($id));
 
         $show->field('id', __('Id'));
-        $show->field('name', __('Name'));
-
-        $show->members('Members', function ($user) {
-            $user->resource('/admin/users');
+        $show->field('created_at', __('Created at'));
+        $show->field('updated_at', __('Updated at'));
+        $show->field('content', __('Content'));
+        $show->field('happening_id', __('Happening id'));
+        $show->user('User', function ($user) {
             $user->id();
             $user->name();
             $user->email();
-            $user->pivot('Admin')->display(function ($userPivot) {
-                return $userPivot['admin'] ? "yes" : "no";
-            });
         });
-
-        $show->field('created_at', __('Created at'));
-        $show->field('updated_at', __('Updated at'));
 
         return $show;
     }
@@ -77,11 +73,11 @@ class TeamController extends AdminController
      */
     protected function form()
     {
-        $form = new Form(new Team());
+        $form = new Form(new Comment());
 
-        $form->text('name', __('Name'));
-
-        $form->multipleSelect('members','members')->options(User::all()->pluck('name','id'));
+        $form->text('content', __('Content'));
+        //$form->number('happening_id', __('Happening id'));
+        //$form->number('user_id', __('User id'));
 
         return $form;
     }

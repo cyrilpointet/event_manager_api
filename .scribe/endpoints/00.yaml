@@ -1,12 +1,12 @@
-name: Endpoints
+name: 'Happening management'
 description: ''
 endpoints:
   -
     httpMethods:
-      - PUT
-    uri: 'api/happening/{id}/member'
+      - GET
+    uri: 'api/happening/{id}'
     metadata:
-      title: ''
+      title: 'Get an Happening'
       description: ''
       authenticated: false
     headers:
@@ -15,11 +15,211 @@ endpoints:
     urlParameters:
       id:
         name: id
-        description: 'The ID of the happening.'
+        description: 'The happening id'
         required: true
-        example: 16
+        example: 1
         type: integer
     queryParameters: []
     bodyParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/happening/{id}/member'
+    metadata:
+      title: 'update user presence'
+      description: ''
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The happening id'
+        required: true
+        example: 8
+        type: integer
+    queryParameters: []
+    bodyParameters:
+      presence:
+        name: presence
+        description: 'the user presence: yes|maybe|no'
+        required: true
+        example: iusto
+        type: string
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - PUT
+    uri: 'api/happening/{id}'
+    metadata:
+      title: 'Update an happening'
+      description: ''
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The Happening id'
+        required: true
+        example: 8
+        type: integer
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Happening name'
+        required: true
+        example: ex
+        type: string
+      description:
+        name: description
+        description: 'Happening description'
+        required: true
+        example: sint
+        type: string
+      place:
+        name: place
+        description: 'Happening place'
+        required: true
+        example: alias
+        type: string
+      status:
+        name: status
+        description: 'Happening status: project, validated or canceled'
+        required: true
+        example: a
+        type: string
+      startAt:
+        name: startAt
+        description: 'Happening start. Date in string'
+        required: true
+        example: incidunt
+        type: string
+      endAt:
+        name: endAt
+        description: 'Happening end. Date in string'
+        required: true
+        example: sunt
+        type: string
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/happening/{id}/member'
+    metadata:
+      title: 'Add a member'
+      description: ''
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The happening id'
+        required: true
+        example: 5
+        type: integer
+    queryParameters: []
+    bodyParameters:
+      id:
+        name: id
+        description: 'the user id to be added'
+        required: true
+        example: 2
+        type: integer
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/happening/{id}/member'
+    metadata:
+      title: 'Remove a member'
+      description: ''
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The happening id'
+        required: true
+        example: 15
+        type: integer
+    queryParameters: []
+    bodyParameters:
+      id:
+        name: id
+        description: 'the user id to be added'
+        required: true
+        example: 11
+        type: integer
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/happening/{id}'
+    metadata:
+      title: 'Delete an Happening'
+      description: ''
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The happening id'
+        required: true
+        example: 15
+        type: integer
+    queryParameters: []
+    bodyParameters: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/happening/{id}/comment'
+    metadata:
+      title: 'Add a comment'
+      description: ''
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The happening id'
+        required: true
+        example: 14
+        type: integer
+    queryParameters: []
+    bodyParameters:
+      text:
+        name: text
+        description: 'the comment''s content'
+        required: true
+        example: in
+        type: string
     responses: []
     responseFields: []

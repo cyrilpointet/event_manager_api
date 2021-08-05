@@ -51,6 +51,7 @@ class UserController extends Controller
 
         $user->teams;
         $user->invitations;
+        $user->happenings;
 
         $response = [
             'user' => $user,
@@ -90,6 +91,7 @@ class UserController extends Controller
 
         $user->teams;
         $user->invitations;
+        $user->happenings;
 
         $response = [
             'user' => $user,
