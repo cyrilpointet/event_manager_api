@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Comment;
 use App\Models\Happening;
+use App\Models\Team;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -16,6 +17,7 @@ class HappeningController extends Controller
      * @bodyParam name string required Happening name
      * @bodyParam description string required Happening description
      * @bodyParam place string required Happening place
+     * @bodyParam members int[] required Members ids
      * @bodyParam startAt string required Happening start. Date in string
      * @bodyParam endAt string required Happening end. Date in string
      */
@@ -28,6 +30,7 @@ class HappeningController extends Controller
                 'place' => 'required',
                 'startAt' => 'required',
                 'endAt' => 'required',
+                'members' => 'required'
             ]);
         } catch (\Exception $e) {
             return response([
@@ -37,6 +40,12 @@ class HappeningController extends Controller
 
         $start = new \DateTime($request->startAt);
         $end = new \DateTime($request->endAt);
+
+        if ($start > $end) {
+            return response([
+                'message' => ['Invalid dates']
+            ], 400);
+        }
 
         $happening = Happening::create([
             'name' => $request->name,
@@ -49,9 +58,17 @@ class HappeningController extends Controller
         $user = $request->user();
         $happening->members()->attach($user->id);
 
+        $team = Team::find($id);
+        foreach ($team->members as $member) {
+            if (in_array($member->id, $request->members) && $member->id !== $user->id) {
+                $happening->members()->attach($member->id);
+            }
+        }
+
         $happening->team;
         $happening->members;
         $happening->comments;
+        $happening->survey;
 
         return response($happening, 200);
     }
@@ -86,14 +103,18 @@ class HappeningController extends Controller
 
         $happening = $request->get('happening');
 
+        $start = new \DateTime($request->startAt);
+        $end = new \DateTime($request->endAt);
+        if ($start > $end) {
+            return response([
+                'message' => ['Invalid dates']
+            ], 400);
+        }
+
         $happening->name = $request->name;
         $happening->description = $request->description;
         $happening->place = $request->place;
         $happening->status = $request->status;
-
-        $start = new \DateTime($request->startAt);
-        $end = new \DateTime($request->endAt);
-
         $happening->start_at = $start;
         $happening->end_at = $end;
 
@@ -102,6 +123,7 @@ class HappeningController extends Controller
         $happening->team;
         $happening->members;
         $happening->comments;
+        $happening->survey;
 
         return response($happening, 200);
     }
@@ -122,6 +144,7 @@ class HappeningController extends Controller
         $happening->team;
         $happening->members;
         $happening->comments;
+        $happening->survey;
 
         return $happening;
     }
@@ -173,6 +196,7 @@ class HappeningController extends Controller
         $happening->team;
         $happening->members;
         $happening->comments;
+        $happening->survey;
 
         return response($happening, 200);
     }
@@ -209,6 +233,7 @@ class HappeningController extends Controller
         $happening->team;
         $happening->members;
         $happening->comments;
+        $happening->survey;
 
         return $happening;
     }
@@ -236,6 +261,7 @@ class HappeningController extends Controller
         $happening->team;
         $happening->members;
         $happening->comments;
+        $happening->survey;
 
         return response($happening, 200);
     }
@@ -268,12 +294,13 @@ class HappeningController extends Controller
         $happening->team;
         $happening->members;
         $happening->comments;
+        $happening->survey;
 
         return response($happening, 201);
     }
 
     /**
-     * Add a comment
+     * Delete a comment
      * @group Happening management
      * @urlParam id int required The happening id
      * @urlParam comment_id int required the comment id to be removed
@@ -308,6 +335,7 @@ class HappeningController extends Controller
         $happening->team;
         $happening->members;
         $happening->comments;
+        $happening->survey;
 
         return response($happening, 200);
     }

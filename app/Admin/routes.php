@@ -17,4 +17,5 @@ Route::group([
     $router->resource('invitations', InvitationController::class);
     $router->resource('happenings', HappeningController::class);
     $router->resource('comments', CommentController::class);
+    $router->resource('surveys', SurveyController::class);
 });

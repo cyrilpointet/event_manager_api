@@ -16,7 +16,8 @@ class Happening extends Model
         'team_id',
         'start_at',
         'end_at',
-        'status'
+        'status',
+        'survey_id'
     ];
 
     protected $casts = [
@@ -27,6 +28,11 @@ class Happening extends Model
     public function team()
     {
         return $this->belongsTo(Team::class);
+    }
+
+    public function survey()
+    {
+        return $this->belongsTo(Survey::class);
     }
 
     public function members()

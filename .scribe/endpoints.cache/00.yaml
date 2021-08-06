@@ -19,7 +19,7 @@ endpoints:
         name: id
         description: 'The happening id'
         required: true
-        example: 11
+        example: 20
         type: integer
     queryParameters: []
     bodyParameters: []
@@ -49,7 +49,7 @@ endpoints:
         name: id
         description: 'The happening id'
         required: true
-        example: 18
+        example: 4
         type: integer
     queryParameters: []
     bodyParameters:
@@ -57,7 +57,7 @@ endpoints:
         name: presence
         description: 'the user presence: yes|maybe|no'
         required: true
-        example: dolores
+        example: sed
         type: string
     responses: []
     responseFields: []
@@ -77,7 +77,7 @@ endpoints:
         name: id
         description: 'The Happening id'
         required: true
-        example: 2
+        example: 17
         type: integer
     queryParameters: []
     bodyParameters:
@@ -85,37 +85,37 @@ endpoints:
         name: name
         description: 'Happening name'
         required: true
-        example: aliquam
+        example: optio
         type: string
       description:
         name: description
         description: 'Happening description'
         required: true
-        example: est
+        example: eius
         type: string
       place:
         name: place
         description: 'Happening place'
         required: true
-        example: nesciunt
+        example: consequatur
         type: string
       status:
         name: status
         description: 'Happening status: project, validated or canceled'
         required: true
-        example: placeat
+        example: aperiam
         type: string
       startAt:
         name: startAt
         description: 'Happening start. Date in string'
         required: true
-        example: vel
+        example: dolor
         type: string
       endAt:
         name: endAt
         description: 'Happening end. Date in string'
         required: true
-        example: rerum
+        example: aliquid
         type: string
     responses: []
     responseFields: []
@@ -135,7 +135,7 @@ endpoints:
         name: id
         description: 'The happening id'
         required: true
-        example: 1
+        example: 19
         type: integer
     queryParameters: []
     bodyParameters:
@@ -143,7 +143,7 @@ endpoints:
         name: id
         description: 'the user id to be added'
         required: true
-        example: 9
+        example: 7
         type: integer
     responses: []
     responseFields: []
@@ -163,7 +163,7 @@ endpoints:
         name: id
         description: 'The happening id'
         required: true
-        example: 18
+        example: 3
         type: integer
     queryParameters: []
     bodyParameters:
@@ -171,7 +171,7 @@ endpoints:
         name: id
         description: 'the user id to be added'
         required: true
-        example: 10
+        example: 7
         type: integer
     responses: []
     responseFields: []
@@ -191,7 +191,7 @@ endpoints:
         name: id
         description: 'The happening id'
         required: true
-        example: 14
+        example: 11
         type: integer
     queryParameters: []
     bodyParameters: []
@@ -213,7 +213,7 @@ endpoints:
         name: id
         description: 'The happening id'
         required: true
-        example: 6
+        example: 17
         type: integer
     queryParameters: []
     bodyParameters:
@@ -221,7 +221,7 @@ endpoints:
         name: text
         description: 'the comment''s content'
         required: true
-        example: qui
+        example: dolorum
         type: string
     responses: []
     responseFields: []
@@ -230,7 +230,7 @@ endpoints:
       - DELETE
     uri: 'api/happening/{id}/comment/{comment_id}'
     metadata:
-      title: 'Add a comment'
+      title: 'Delete a comment'
       description: ''
       authenticated: false
     headers:
@@ -247,7 +247,7 @@ endpoints:
         name: comment_id
         description: 'the comment id to be removed'
         required: true
-        example: 2
+        example: 4
         type: integer
     queryParameters: []
     bodyParameters: []

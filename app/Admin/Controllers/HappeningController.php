@@ -39,6 +39,7 @@ class HappeningController extends AdminController
         $grid->column('name', __('Name'));
         $grid->column('status', __('Status'));
         $grid->column('team_id', __('Team id'));
+        $grid->column('survey_id', __('Survey id'));
 
         $grid->start_at()->display(function ($rawDate) {
             $date = date_create($rawDate);

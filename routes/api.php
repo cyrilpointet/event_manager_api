@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HappeningController;
 use App\Http\Controllers\InvitationController;
+use App\Http\Controllers\SurveyController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -32,6 +33,7 @@ Route::middleware(['auth:sanctum', 'isTeamAdmin'])->group(function () {
     Route::post('/team/{id}/invitation', [InvitationController::class, 'createFromTeam']);
     Route::put('/team/{id}/invitation', [InvitationController::class, 'manageUserInvitation']);
     Route::post('/team/{id}/happening', [HappeningController::class, 'create']);
+    Route::post('/team/{id}/survey', [SurveyController::class, 'create']);
 });
 
 Route::middleware(['auth:sanctum', 'IsHappeningMember'])->group(function () {

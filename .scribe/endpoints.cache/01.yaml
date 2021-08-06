@@ -21,7 +21,7 @@ endpoints:
         name: id
         description: 'The team''s id'
         required: true
-        example: 2
+        example: 14
         type: integer
     queryParameters: []
     bodyParameters: []
@@ -55,7 +55,7 @@ endpoints:
         name: name
         description: 'The team''s name'
         required: true
-        example: impedit
+        example: id
         type: string
     responses: []
     responseFields: []
@@ -75,7 +75,7 @@ endpoints:
         name: id
         description: 'The team''s id'
         required: true
-        example: 15
+        example: 12
         type: integer
     queryParameters: []
     bodyParameters:
@@ -83,7 +83,7 @@ endpoints:
         name: name
         description: 'The team''s name'
         required: true
-        example: error
+        example: expedita
         type: string
     responses: []
     responseFields: []
@@ -103,7 +103,7 @@ endpoints:
         name: id
         description: 'The team''s id'
         required: true
-        example: 10
+        example: 19
         type: integer
     queryParameters: []
     bodyParameters: []
@@ -125,7 +125,7 @@ endpoints:
         name: id
         description: 'The team''s id'
         required: true
-        example: 11
+        example: 8
         type: integer
     queryParameters: []
     bodyParameters:
@@ -133,13 +133,13 @@ endpoints:
         name: id
         description: 'The user''s id to manage'
         required: true
-        example: 7
+        example: 4
         type: integer
       admin:
         name: admin
         description: 'The new user''s status'
         required: true
-        example: true
+        example: false
         type: boolean
     responses: []
     responseFields: []
@@ -183,7 +183,7 @@ endpoints:
         name: id
         description: 'The team''s id'
         required: true
-        example: 10
+        example: 3
         type: integer
     queryParameters: []
     bodyParameters:
@@ -191,7 +191,7 @@ endpoints:
         name: email
         description: 'an email'
         required: true
-        example: quia
+        example: eum
         type: string
     responses: []
     responseFields: []
@@ -211,7 +211,7 @@ endpoints:
         name: id
         description: 'The team''s id'
         required: true
-        example: 4
+        example: 20
         type: integer
     queryParameters: []
     bodyParameters:
@@ -219,7 +219,7 @@ endpoints:
         name: id
         description: 'The invitation''s id'
         required: true
-        example: 13
+        example: 15
         type: integer
       status:
         name: status
@@ -245,7 +245,7 @@ endpoints:
         name: id
         description: 'The team''s id'
         required: true
-        example: 6
+        example: 9
         type: integer
     queryParameters: []
     bodyParameters:
@@ -273,7 +273,7 @@ endpoints:
         name: id
         description: 'The team''s id'
         required: true
-        example: 7
+        example: 5
         type: integer
     queryParameters: []
     bodyParameters:
@@ -281,31 +281,99 @@ endpoints:
         name: name
         description: 'Happening name'
         required: true
-        example: excepturi
+        example: voluptates
         type: string
       description:
         name: description
         description: 'Happening description'
         required: true
-        example: alias
+        example: dolores
         type: string
       place:
         name: place
         description: 'Happening place'
         required: true
-        example: corrupti
+        example: tenetur
         type: string
+      members:
+        name: members
+        description: 'Members ids'
+        required: true
+        example:
+          - 13
+          - 9
+        type: 'integer[]'
       startAt:
         name: startAt
         description: 'Happening start. Date in string'
         required: true
-        example: veniam
+        example: ut
         type: string
       endAt:
         name: endAt
         description: 'Happening end. Date in string'
         required: true
-        example: eos
+        example: numquam
+        type: string
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/team/{id}/survey'
+    metadata:
+      title: 'Create a new survey'
+      description: ''
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The team''s id'
+        required: true
+        example: 11
+        type: integer
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Happening name'
+        required: true
+        example: est
+        type: string
+      description:
+        name: description
+        description: 'Happening description'
+        required: true
+        example: consequatur
+        type: string
+      place:
+        name: place
+        description: 'Happening place'
+        required: true
+        example: enim
+        type: string
+      dates:
+        name: dates
+        description: ''
+        required: true
+        example:
+          - []
+          - []
+        type: 'object[]'
+      dates.start:
+        name: dates.start
+        description: 'Happening start. Date in string'
+        required: false
+        example: placeat
+        type: string
+      dates.end:
+        name: dates.end
+        description: 'Happening end. Date in string'
+        required: false
+        example: delectus
         type: string
     responses: []
     responseFields: []

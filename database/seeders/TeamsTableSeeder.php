@@ -21,6 +21,7 @@ class TeamsTableSeeder extends Seeder
         $team_1->members()->attach(1, ['admin' => true]);
         $team_1->members()->attach(3, ['admin' => true]);
         $team_1->members()->attach(2);
+        $team_1->members()->attach(4);
         $team_1->save();
 
         $team_2 = Team::create([
