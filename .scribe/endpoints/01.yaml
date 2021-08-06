@@ -1,68 +1,14 @@
-name: 'Team management'
+name: 'Survey management'
 description: |-
 
-  APIs for managing teams
+  APIs for managing surveys
 endpoints:
   -
     httpMethods:
-      - GET
-    uri: 'api/team/{id}'
-    metadata:
-      title: 'Get a team by id'
-      description: ''
-      authenticated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The team''s id'
-        required: true
-        example: 14
-        type: integer
-    queryParameters: []
-    bodyParameters: []
-    responses:
-      -
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-    responseFields: []
-  -
-    httpMethods:
-      - POST
-    uri: api/team
-    metadata:
-      title: |-
-        Create a team
-        and set current user as member and admin
-      description: ''
-      authenticated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    queryParameters: []
-    bodyParameters:
-      name:
-        name: name
-        description: 'The team''s name'
-        required: true
-        example: id
-        type: string
-    responses: []
-    responseFields: []
-  -
-    httpMethods:
       - PUT
-    uri: 'api/team/{id}'
+    uri: 'api/survey/{id}'
     metadata:
-      title: 'Update a team'
+      title: 'Update a survey'
       description: ''
       authenticated: false
     headers:
@@ -71,207 +17,9 @@ endpoints:
     urlParameters:
       id:
         name: id
-        description: 'The team''s id'
+        description: 'The survey''s id'
         required: true
-        example: 12
-        type: integer
-    queryParameters: []
-    bodyParameters:
-      name:
-        name: name
-        description: 'The team''s name'
-        required: true
-        example: expedita
-        type: string
-    responses: []
-    responseFields: []
-  -
-    httpMethods:
-      - DELETE
-    uri: 'api/team/{id}'
-    metadata:
-      title: 'Delete a team'
-      description: ''
-      authenticated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The team''s id'
-        required: true
-        example: 19
-        type: integer
-    queryParameters: []
-    bodyParameters: []
-    responses: []
-    responseFields: []
-  -
-    httpMethods:
-      - PUT
-    uri: 'api/team/{id}/admin'
-    metadata:
-      title: 'Manage the admin status of a team user'
-      description: ''
-      authenticated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The team''s id'
-        required: true
-        example: 8
-        type: integer
-    queryParameters: []
-    bodyParameters:
-      id:
-        name: id
-        description: 'The user''s id to manage'
-        required: true
-        example: 4
-        type: integer
-      admin:
-        name: admin
-        description: 'The new user''s status'
-        required: true
-        example: false
-        type: boolean
-    responses: []
-    responseFields: []
-  -
-    httpMethods:
-      - GET
-    uri: api/team/name
-    metadata:
-      title: 'Get teams by name'
-      description: ''
-      authenticated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    queryParameters: []
-    bodyParameters: []
-    responses:
-      -
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-    responseFields: []
-  -
-    httpMethods:
-      - POST
-    uri: 'api/team/{id}/invitation'
-    metadata:
-      title: 'Create an invitation from a team'
-      description: ''
-      authenticated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The team''s id'
-        required: true
-        example: 3
-        type: integer
-    queryParameters: []
-    bodyParameters:
-      email:
-        name: email
-        description: 'an email'
-        required: true
-        example: eum
-        type: string
-    responses: []
-    responseFields: []
-  -
-    httpMethods:
-      - PUT
-    uri: 'api/team/{id}/invitation'
-    metadata:
-      title: 'Manage an invitation sent to a team by a user'
-      description: ''
-      authenticated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The team''s id'
-        required: true
-        example: 20
-        type: integer
-    queryParameters: []
-    bodyParameters:
-      id:
-        name: id
-        description: 'The invitation''s id'
-        required: true
-        example: 15
-        type: integer
-      status:
-        name: status
-        description: 'an email'
-        required: true
-        example: false
-        type: boolean
-    responses: []
-    responseFields: []
-  -
-    httpMethods:
-      - DELETE
-    uri: 'api/team/{id}/member'
-    metadata:
-      title: 'Remove a member from team'
-      description: ''
-      authenticated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The team''s id'
-        required: true
-        example: 9
-        type: integer
-    queryParameters: []
-    bodyParameters:
-      id:
-        name: id
-        description: 'The user''s id to remove'
-        required: true
-        example: 14
-        type: integer
-    responses: []
-    responseFields: []
-  -
-    httpMethods:
-      - POST
-    uri: 'api/team/{id}/happening'
-    metadata:
-      title: 'Create a new happening'
-      description: ''
-      authenticated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The team''s id'
-        required: true
-        example: 5
+        example: 2
         type: integer
     queryParameters: []
     bodyParameters:
@@ -279,48 +27,28 @@ endpoints:
         name: name
         description: 'Happening name'
         required: true
-        example: voluptates
+        example: quisquam
         type: string
       description:
         name: description
         description: 'Happening description'
+        required: true
+        example: rem
+        type: string
+      place:
+        name: place
+        description: 'Happening place'
         required: true
         example: dolores
         type: string
-      place:
-        name: place
-        description: 'Happening place'
-        required: true
-        example: tenetur
-        type: string
-      members:
-        name: members
-        description: 'Members ids'
-        required: true
-        example:
-          - 13
-          - 9
-        type: 'integer[]'
-      startAt:
-        name: startAt
-        description: 'Happening start. Date in string'
-        required: true
-        example: ut
-        type: string
-      endAt:
-        name: endAt
-        description: 'Happening end. Date in string'
-        required: true
-        example: numquam
-        type: string
     responses: []
     responseFields: []
   -
     httpMethods:
       - POST
-    uri: 'api/team/{id}/survey'
+    uri: 'api/survey/{id}/validate'
     metadata:
-      title: 'Create a new survey'
+      title: 'Validate a survey. Delete the survey and unwanted happenings'
       description: ''
       authenticated: false
     headers:
@@ -329,49 +57,19 @@ endpoints:
     urlParameters:
       id:
         name: id
-        description: 'The team''s id'
+        description: 'The survey''s id'
         required: true
-        example: 11
+        example: 14
         type: integer
     queryParameters: []
     bodyParameters:
-      name:
-        name: name
-        description: 'Happening name'
-        required: true
-        example: est
-        type: string
-      description:
-        name: description
-        description: 'Happening description'
-        required: true
-        example: consequatur
-        type: string
-      place:
-        name: place
-        description: 'Happening place'
-        required: true
-        example: enim
-        type: string
-      dates:
-        name: dates
-        description: ''
+      happenings:
+        name: happenings
+        description: 'Happenings ids to be validated. Others will be deleted'
         required: true
         example:
-          - []
-          - []
-        type: 'object[]'
-      dates.start:
-        name: dates.start
-        description: 'Happening start. Date in string'
-        required: false
-        example: placeat
-        type: string
-      dates.end:
-        name: dates.end
-        description: 'Happening end. Date in string'
-        required: false
-        example: delectus
-        type: string
+          - 8
+          - 15
+        type: 'integer[]'
     responses: []
     responseFields: []

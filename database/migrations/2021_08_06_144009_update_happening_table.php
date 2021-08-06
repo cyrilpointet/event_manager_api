@@ -17,7 +17,8 @@ class UpdateHappeningTable extends Migration
             $table->unsignedBigInteger('survey_id')->nullable();
             $table->foreign('survey_id')
                 ->references('id')
-                ->on('surveys');
+                ->on('surveys')
+                ->onDelete('cascade');
         });
     }
 
@@ -29,6 +30,7 @@ class UpdateHappeningTable extends Migration
     public function down()
     {
         Schema::table('happenings', function (Blueprint $table) {
+            $table->dropForeign('happenings_survey_id_foreign');
             $table->dropColumn('survey_id');
         });
     }

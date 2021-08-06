@@ -4,6 +4,7 @@ namespace App\Http;
 
 use App\Http\Middleware\EnsureIsHappeningAdmin;
 use App\Http\Middleware\EnsureIsHappeningMember;
+use App\Http\Middleware\EnsureIsSurveyAdmin;
 use App\Http\Middleware\EnsureIsTeamAdmin;
 use App\Http\Middleware\EnsureIsTeamMember;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
@@ -71,6 +72,7 @@ class Kernel extends HttpKernel
         'isTeamMember' => EnsureIsTeamMember::class,
         'isTeamAdmin' => EnsureIsTeamAdmin::class,
         'isHappeningAdmin' => EnsureIsHappeningAdmin::class,
-        'IsHappeningMember' => EnsureIsHappeningMember::class,
+        'isHappeningMember' => EnsureIsHappeningMember::class,
+        'isSurveyAdmin' => EnsureIsSurveyAdmin::class,
     ];
 }

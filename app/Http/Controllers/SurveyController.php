@@ -81,4 +81,75 @@ class SurveyController extends Controller
 
         return response($survey, 201);
     }
+
+    /**
+     * Update a survey
+     * @urlParam id int required The survey's id
+     * @bodyParam name string required Happening name
+     * @bodyParam description string required Happening description
+     * @bodyParam place string required Happening place
+     */
+    public function update(Request $request, $id)
+    {
+        try {
+            $request->validate([
+                'name' => 'required',
+                'description' => 'required',
+                'place' => 'required',
+            ]);
+        } catch (\Exception $e) {
+            return response([
+                'message' => ['Invalid or missing fields']
+            ], 400);
+        }
+
+        $survey = $request->get('survey');
+
+        foreach ($survey->happenings as $happening) {
+            $happening->name = $request->name;
+            $happening->description = $request->description;
+            $happening->place = $request->place;
+            $happening->save();
+        }
+
+        $survey->team;
+        $survey->happenings;
+
+        return response($survey, 200);
+    }
+
+    /**
+     * Validate a survey. Delete the survey and unwanted happenings
+     * @urlParam id int required The survey's id
+     * @bodyParam happenings int[] required Happenings ids to be validated. Others will be deleted
+     */
+    public function validateHappenings(Request $request, $id)
+    {
+        try {
+            $request->validate([
+                'happenings' => 'required',
+            ]);
+        } catch (\Exception $e) {
+            return response([
+                'message' => ['Invalid or missing fields']
+            ], 400);
+        }
+
+        $survey = $request->get('survey');
+
+        $happenings = [];
+        foreach ($survey->happenings as $happening) {
+            if (true !== in_array($happening->id, $request->happenings)) {
+                $happening->delete();
+            } else {
+                $happening->survey_id = null;
+                $happening->save();
+                $happenings[] = $happening;
+            }
+        }
+
+        $survey->delete();
+
+        return response($happenings, 200);
+    }
 }
