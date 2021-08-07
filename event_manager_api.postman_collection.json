@@ -745,14 +745,14 @@
 			"response": []
 		},
 		{
-			"name": "Team create Survey",
+			"name": "Survey create",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
-							"postman.setEnvironmentVariable(\"happening_id\", jsonData.id);"
+							"postman.setEnvironmentVariable(\"survey_id\", jsonData.id);"
 						],
 						"type": "text/javascript"
 					}
@@ -769,7 +769,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\": \"API Event\",\n    \"description\": \"description test\",\n    \"place\": \"place\",\n    \"startAt\": \"2022-01-25 11:21\",\n    \"endAt\": \"2022-01-25 14:21\",\n    \"members\": [2,4]\n}",
+					"raw": "{\n    \"name\": \"API Survey\",\n    \"description\": \"Survey test\",\n    \"place\": \"Survey place\",\n    \"dates\": [\n        {\n            \"start\": \"2022-01-04 11:21\",\n            \"end\": \"2022-01-04 14:21\"\n        },\n        {\n            \"start\": \"2022-01-05 11:21\",\n            \"end\": \"2022-01-05 14:21\"\n        },\n        {\n            \"start\": \"2022-01-06 11:21\",\n            \"end\": \"2022-01-06 14:21\"\n        }\n    ],\n    \"members\": [2,4]\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -777,14 +777,240 @@
 					}
 				},
 				"url": {
-					"raw": "{{base_url}}/team/1/happening",
+					"raw": "{{base_url}}/team/1/survey",
 					"host": [
 						"{{base_url}}"
 					],
 					"path": [
 						"team",
 						"1",
-						"happening"
+						"survey"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Survey show",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/survey/{{survey_id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"survey",
+						"{{survey_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Survey update",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"API Survey updated\",\n    \"description\": \"Survey test updated\",\n    \"place\": \"Survey place updated\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/survey/{{survey_id}}",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"survey",
+						"{{survey_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Survey add member",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/survey/{{survey_id}}/member",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"survey",
+						"{{survey_id}}",
+						"member"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Survey remove member",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/survey/{{survey_id}}/member",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"survey",
+						"{{survey_id}}",
+						"member"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Survey validate",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer {{token}}"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"happenings\": [7, 8]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/survey/{{survey_id}}/validate",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"survey",
+						"{{survey_id}}",
+						"validate"
 					]
 				}
 			},

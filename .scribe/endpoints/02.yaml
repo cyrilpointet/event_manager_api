@@ -19,7 +19,7 @@ endpoints:
         name: id
         description: 'The team''s id'
         required: true
-        example: 8
+        example: 3
         type: integer
     queryParameters: []
     bodyParameters: []
@@ -53,7 +53,7 @@ endpoints:
         name: name
         description: 'The team''s name'
         required: true
-        example: ratione
+        example: ut
         type: string
     responses: []
     responseFields: []
@@ -73,7 +73,7 @@ endpoints:
         name: id
         description: 'The team''s id'
         required: true
-        example: 19
+        example: 10
         type: integer
     queryParameters: []
     bodyParameters:
@@ -81,7 +81,7 @@ endpoints:
         name: name
         description: 'The team''s name'
         required: true
-        example: molestiae
+        example: in
         type: string
     responses: []
     responseFields: []
@@ -101,7 +101,7 @@ endpoints:
         name: id
         description: 'The team''s id'
         required: true
-        example: 11
+        example: 5
         type: integer
     queryParameters: []
     bodyParameters: []
@@ -123,7 +123,7 @@ endpoints:
         name: id
         description: 'The team''s id'
         required: true
-        example: 3
+        example: 11
         type: integer
     queryParameters: []
     bodyParameters:
@@ -131,7 +131,7 @@ endpoints:
         name: id
         description: 'The user''s id to manage'
         required: true
-        example: 10
+        example: 2
         type: integer
       admin:
         name: admin
@@ -181,7 +181,7 @@ endpoints:
         name: id
         description: 'The team''s id'
         required: true
-        example: 5
+        example: 6
         type: integer
     queryParameters: []
     bodyParameters:
@@ -189,7 +189,7 @@ endpoints:
         name: email
         description: 'an email'
         required: true
-        example: officia
+        example: in
         type: string
     responses: []
     responseFields: []
@@ -209,7 +209,7 @@ endpoints:
         name: id
         description: 'The team''s id'
         required: true
-        example: 3
+        example: 19
         type: integer
     queryParameters: []
     bodyParameters:
@@ -217,7 +217,7 @@ endpoints:
         name: id
         description: 'The invitation''s id'
         required: true
-        example: 13
+        example: 9
         type: integer
       status:
         name: status
@@ -243,7 +243,7 @@ endpoints:
         name: id
         description: 'The team''s id'
         required: true
-        example: 11
+        example: 8
         type: integer
     queryParameters: []
     bodyParameters:
@@ -251,127 +251,7 @@ endpoints:
         name: id
         description: 'The user''s id to remove'
         required: true
-        example: 12
+        example: 7
         type: integer
-    responses: []
-    responseFields: []
-  -
-    httpMethods:
-      - POST
-    uri: 'api/team/{id}/happening'
-    metadata:
-      title: 'Create a new happening'
-      description: ''
-      authenticated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The team''s id'
-        required: true
-        example: 13
-        type: integer
-    queryParameters: []
-    bodyParameters:
-      name:
-        name: name
-        description: 'Happening name'
-        required: true
-        example: rerum
-        type: string
-      description:
-        name: description
-        description: 'Happening description'
-        required: true
-        example: modi
-        type: string
-      place:
-        name: place
-        description: 'Happening place'
-        required: true
-        example: ipsam
-        type: string
-      members:
-        name: members
-        description: 'Members ids'
-        required: true
-        example:
-          - 15
-          - 1
-        type: 'integer[]'
-      startAt:
-        name: startAt
-        description: 'Happening start. Date in string'
-        required: true
-        example: unde
-        type: string
-      endAt:
-        name: endAt
-        description: 'Happening end. Date in string'
-        required: true
-        example: inventore
-        type: string
-    responses: []
-    responseFields: []
-  -
-    httpMethods:
-      - POST
-    uri: 'api/team/{id}/survey'
-    metadata:
-      title: 'Create a new survey'
-      description: ''
-      authenticated: false
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The team''s id'
-        required: true
-        example: 14
-        type: integer
-    queryParameters: []
-    bodyParameters:
-      name:
-        name: name
-        description: 'Happening name'
-        required: true
-        example: et
-        type: string
-      description:
-        name: description
-        description: 'Happening description'
-        required: true
-        example: est
-        type: string
-      place:
-        name: place
-        description: 'Happening place'
-        required: true
-        example: consectetur
-        type: string
-      dates:
-        name: dates
-        description: ''
-        required: true
-        example:
-          - []
-          - []
-        type: 'object[]'
-      dates.start:
-        name: dates.start
-        description: 'Happening start. Date in string'
-        required: false
-        example: vel
-        type: string
-      dates.end:
-        name: dates.end
-        description: 'Happening end. Date in string'
-        required: false
-        example: culpa
-        type: string
     responses: []
     responseFields: []

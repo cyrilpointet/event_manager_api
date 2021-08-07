@@ -71,6 +71,7 @@ class HappeningController extends AdminController
         $show->field('place', __('Place'));
         $show->field('status', __('Status'));
         $show->field('team_id', __('Team id'));
+        $show->field('survey_id', __('Survey id'));
         $show->field('start_at', __('Start at'));
         $show->field('end_at', __('End at'));
 

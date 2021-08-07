@@ -51,6 +51,12 @@ Route::middleware(['auth:sanctum', 'isHappeningAdmin'])->group(function () {
 });
 
 Route::middleware(['auth:sanctum', 'isSurveyAdmin'])->group(function () {
+    Route::get('/survey/{id}', [SurveyController::class, 'show']);
+});
+
+Route::middleware(['auth:sanctum', 'isSurveyAdmin'])->group(function () {
     Route::put('/survey/{id}', [SurveyController::class, 'update']);
+    Route::post('/survey/{id}/member', [SurveyController::class, 'addMember']);
+    Route::delete('/survey/{id}/member', [SurveyController::class, 'removeMember']);
     Route::post('/survey/{id}/validate', [SurveyController::class, 'validateHappenings']);
 });

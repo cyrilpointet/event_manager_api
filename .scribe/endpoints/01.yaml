@@ -19,7 +19,7 @@ endpoints:
         name: id
         description: 'The survey''s id'
         required: true
-        example: 2
+        example: 14
         type: integer
     queryParameters: []
     bodyParameters:
@@ -27,19 +27,19 @@ endpoints:
         name: name
         description: 'Happening name'
         required: true
-        example: quisquam
+        example: non
         type: string
       description:
         name: description
         description: 'Happening description'
         required: true
-        example: rem
+        example: veritatis
         type: string
       place:
         name: place
         description: 'Happening place'
         required: true
-        example: dolores
+        example: labore
         type: string
     responses: []
     responseFields: []
@@ -59,7 +59,7 @@ endpoints:
         name: id
         description: 'The survey''s id'
         required: true
-        example: 14
+        example: 19
         type: integer
     queryParameters: []
     bodyParameters:
@@ -68,8 +68,154 @@ endpoints:
         description: 'Happenings ids to be validated. Others will be deleted'
         required: true
         example:
-          - 8
-          - 15
+          - 20
+          - 14
         type: 'integer[]'
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/team/{id}/survey'
+    metadata:
+      title: 'Create a new survey'
+      description: ''
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The team''s id'
+        required: true
+        example: 4
+        type: integer
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Happening name'
+        required: true
+        example: deserunt
+        type: string
+      description:
+        name: description
+        description: 'Happening description'
+        required: true
+        example: quis
+        type: string
+      place:
+        name: place
+        description: 'Happening place'
+        required: true
+        example: sit
+        type: string
+      dates:
+        name: dates
+        description: ''
+        required: true
+        example:
+          - []
+          - []
+        type: 'object[]'
+      dates.start:
+        name: dates.start
+        description: 'Happening start. Date in string'
+        required: false
+        example: quia
+        type: string
+      dates.end:
+        name: dates.end
+        description: 'Happening end. Date in string'
+        required: false
+        example: repellat
+        type: string
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/survey/{id}'
+    metadata:
+      title: 'Get a survey'
+      description: ''
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The survey''s id'
+        required: true
+        example: 19
+        type: integer
+    queryParameters: []
+    bodyParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/survey/{id}/member'
+    metadata:
+      title: 'Add a member'
+      description: ''
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The survey id'
+        required: true
+        example: 20
+        type: integer
+    queryParameters: []
+    bodyParameters:
+      id:
+        name: id
+        description: 'the user id to be added'
+        required: true
+        example: 10
+        type: integer
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/survey/{id}/member'
+    metadata:
+      title: 'Remove a member'
+      description: ''
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The survey id'
+        required: true
+        example: 4
+        type: integer
+    queryParameters: []
+    bodyParameters:
+      id:
+        name: id
+        description: 'the user id to be added'
+        required: true
+        example: 2
+        type: integer
     responses: []
     responseFields: []

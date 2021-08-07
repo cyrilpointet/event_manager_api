@@ -1,5 +1,7 @@
 name: 'Happening management'
-description: ''
+description: |-
+
+  APIs for managing surveys
 endpoints:
   -
     httpMethods:
@@ -17,7 +19,7 @@ endpoints:
         name: id
         description: 'The happening id'
         required: true
-        example: 12
+        example: 1
         type: integer
     queryParameters: []
     bodyParameters: []
@@ -47,7 +49,7 @@ endpoints:
         name: id
         description: 'The happening id'
         required: true
-        example: 11
+        example: 14
         type: integer
     queryParameters: []
     bodyParameters:
@@ -55,7 +57,7 @@ endpoints:
         name: presence
         description: 'the user presence: yes|maybe|no'
         required: true
-        example: numquam
+        example: inventore
         type: string
     responses: []
     responseFields: []
@@ -75,7 +77,7 @@ endpoints:
         name: id
         description: 'The Happening id'
         required: true
-        example: 12
+        example: 18
         type: integer
     queryParameters: []
     bodyParameters:
@@ -83,37 +85,37 @@ endpoints:
         name: name
         description: 'Happening name'
         required: true
-        example: illo
+        example: qui
         type: string
       description:
         name: description
         description: 'Happening description'
         required: true
-        example: distinctio
+        example: eos
         type: string
       place:
         name: place
         description: 'Happening place'
         required: true
-        example: quaerat
+        example: autem
         type: string
       status:
         name: status
         description: 'Happening status: project, validated or canceled'
         required: true
-        example: et
+        example: necessitatibus
         type: string
       startAt:
         name: startAt
         description: 'Happening start. Date in string'
         required: true
-        example: similique
+        example: illo
         type: string
       endAt:
         name: endAt
         description: 'Happening end. Date in string'
         required: true
-        example: enim
+        example: quas
         type: string
     responses: []
     responseFields: []
@@ -133,7 +135,7 @@ endpoints:
         name: id
         description: 'The happening id'
         required: true
-        example: 4
+        example: 12
         type: integer
     queryParameters: []
     bodyParameters:
@@ -141,7 +143,7 @@ endpoints:
         name: id
         description: 'the user id to be added'
         required: true
-        example: 18
+        example: 19
         type: integer
     responses: []
     responseFields: []
@@ -161,7 +163,7 @@ endpoints:
         name: id
         description: 'The happening id'
         required: true
-        example: 15
+        example: 5
         type: integer
     queryParameters: []
     bodyParameters:
@@ -169,7 +171,7 @@ endpoints:
         name: id
         description: 'the user id to be added'
         required: true
-        example: 10
+        example: 11
         type: integer
     responses: []
     responseFields: []
@@ -189,7 +191,7 @@ endpoints:
         name: id
         description: 'The happening id'
         required: true
-        example: 15
+        example: 16
         type: integer
     queryParameters: []
     bodyParameters: []
@@ -211,7 +213,7 @@ endpoints:
         name: id
         description: 'The happening id'
         required: true
-        example: 18
+        example: 20
         type: integer
     queryParameters: []
     bodyParameters:
@@ -219,7 +221,7 @@ endpoints:
         name: text
         description: 'the comment''s content'
         required: true
-        example: illo
+        example: voluptate
         type: string
     responses: []
     responseFields: []
@@ -239,15 +241,75 @@ endpoints:
         name: id
         description: 'The happening id'
         required: true
-        example: 7
+        example: 18
         type: integer
       comment_id:
         name: comment_id
         description: 'the comment id to be removed'
         required: true
-        example: 18
+        example: 1
         type: integer
     queryParameters: []
     bodyParameters: []
+    responses: []
+    responseFields: []
+  -
+    httpMethods:
+      - POST
+    uri: 'api/team/{id}/happening'
+    metadata:
+      title: 'Create a new happening'
+      description: ''
+      authenticated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The team''s id'
+        required: true
+        example: 5
+        type: integer
+    queryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Happening name'
+        required: true
+        example: maiores
+        type: string
+      description:
+        name: description
+        description: 'Happening description'
+        required: true
+        example: cum
+        type: string
+      place:
+        name: place
+        description: 'Happening place'
+        required: true
+        example: accusantium
+        type: string
+      members:
+        name: members
+        description: 'Members ids'
+        required: true
+        example:
+          - 2
+          - 15
+        type: 'integer[]'
+      startAt:
+        name: startAt
+        description: 'Happening start. Date in string'
+        required: true
+        example: aut
+        type: string
+      endAt:
+        name: endAt
+        description: 'Happening end. Date in string'
+        required: true
+        example: accusamus
+        type: string
     responses: []
     responseFields: []

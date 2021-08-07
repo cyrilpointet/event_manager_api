@@ -8,11 +8,15 @@ use App\Models\Team;
 use App\Models\User;
 use Illuminate\Http\Request;
 
+/**
+ * @group Happening management
+ *
+ * APIs for managing surveys
+ */
 class HappeningController extends Controller
 {
     /**
      * Create a new happening
-     * @group Team management
      * @urlParam id int required The team's id
      * @bodyParam name string required Happening name
      * @bodyParam description string required Happening description
@@ -75,7 +79,6 @@ class HappeningController extends Controller
 
     /**
      * Update an happening
-     * @group Happening management
      * @urlParam id int required The Happening id
      * @bodyParam name string required Happening name
      * @bodyParam description string required Happening description
@@ -130,7 +133,6 @@ class HappeningController extends Controller
 
     /**
      * Get an Happening
-     * @group Happening management
      * @urlParam id int required The happening id
      */
     public function show(Request $request)
@@ -151,7 +153,6 @@ class HappeningController extends Controller
 
     /**
      * Add a member
-     * @group Happening management
      * @urlParam id int required The happening id
      * @bodyParam id int required the user id to be added
      */
@@ -203,7 +204,6 @@ class HappeningController extends Controller
 
     /**
      * update user presence
-     * @group Happening management
      * @urlParam id int required The happening id
      * @bodyParam presence string required the user presence: yes|maybe|no
      */
@@ -240,7 +240,6 @@ class HappeningController extends Controller
 
     /**
      * Remove a member
-     * @group Happening management
      * @urlParam id int required The happening id
      * @bodyParam id int required the user id to be added
      */
@@ -268,7 +267,6 @@ class HappeningController extends Controller
 
     /**
      * Add a comment
-     * @group Happening management
      * @urlParam id int required The happening id
      * @bodyParam text string required the comment's content
      */
@@ -301,7 +299,6 @@ class HappeningController extends Controller
 
     /**
      * Delete a comment
-     * @group Happening management
      * @urlParam id int required The happening id
      * @urlParam comment_id int required the comment id to be removed
      */
@@ -342,7 +339,6 @@ class HappeningController extends Controller
 
     /**
      * Delete an Happening
-     * @group Happening management
      * @urlParam id int required The happening id
      */
     public function delete(Request $request)

@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 
-class EnsureIsHappeningMember
+class EnsureIsSurveyMember
 {
     /**
      * Handle an incoming request.
@@ -17,10 +17,10 @@ class EnsureIsHappeningMember
     public function handle(Request $request, Closure $next)
     {
         $user = $request->user();
-        $happenings = $user->happenings()->where('happening_id', $request->route('id'))->get();
+        $happenings = $user->happenings()->where('survey_id', $request->route('id'))->get();
         if (0 === count($happenings)) {
             return response([
-                'message' => ['User is not a happening member']
+                'message' => ['User is not a survey member']
             ], 403);
         }
         return $next($request);

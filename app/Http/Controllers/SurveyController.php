@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Happening;
 use App\Models\Survey;
 use App\Models\Team;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 /**
@@ -16,7 +17,6 @@ class SurveyController extends Controller
 {
     /**
      * Create a new survey
-     * @group Team management
      * @urlParam id int required The team's id
      * @bodyParam name string required Happening name
      * @bodyParam description string required Happening description
@@ -83,13 +83,31 @@ class SurveyController extends Controller
     }
 
     /**
+     * Get a survey
+     * @urlParam id int required The survey's id
+     */
+    public function show($id)
+    {
+        $survey = Survey::find($id);
+        if ($survey === null) {
+            return response([
+                'message' => ['Unknown survey']
+            ], 404);
+        }
+        $survey->team;
+        $survey->happenings;
+
+        return response($survey, 200);
+    }
+
+    /**
      * Update a survey
      * @urlParam id int required The survey's id
      * @bodyParam name string required Happening name
      * @bodyParam description string required Happening description
      * @bodyParam place string required Happening place
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         try {
             $request->validate([
@@ -123,7 +141,7 @@ class SurveyController extends Controller
      * @urlParam id int required The survey's id
      * @bodyParam happenings int[] required Happenings ids to be validated. Others will be deleted
      */
-    public function validateHappenings(Request $request, $id)
+    public function validateHappenings(Request $request)
     {
         try {
             $request->validate([
@@ -151,5 +169,93 @@ class SurveyController extends Controller
         $survey->delete();
 
         return response($happenings, 200);
+    }
+
+    /**
+     * Add a member
+     * @urlParam id int required The survey id
+     * @bodyParam id int required the user id to be added
+     */
+    public function addMember(Request $request, $id)
+    {
+        try {
+            $request->validate([
+                'id' => 'required',
+            ]);
+        } catch (\Exception $e) {
+            return response([
+                'message' => ['Invalid or missing fields']
+            ], 400);
+        }
+
+        $user = User::find($request->id);
+        if ($user === null) {
+            return response([
+                'message' => ['Unknown user']
+            ], 404);
+        }
+
+        $survey = $request->get('survey');
+
+        $teams = $user->teams()->where('team_id', $survey->team->id)->get();
+        if (0 === count($teams)) {
+            return response([
+                'message' => ['User is not a team member']
+            ], 403);
+        }
+
+        foreach ($survey->happenings as $happening) {
+            $isHappeningMember = false;
+            foreach ($happening->members as $member) {
+                if ($member->id === $request->id) {
+                    $isHappeningMember = true;
+                }
+            }
+            if ($isHappeningMember === false) {
+                $happening->members()->attach($request->id);
+            }
+        }
+
+        $survey = Survey::find($id);
+        $survey->team;
+        $survey->happenings;
+
+        return response($survey, 200);
+    }
+
+    /**
+     * Remove a member
+     * @urlParam id int required The survey id
+     * @bodyParam id int required the user id to be added
+     */
+    public function removeMember(Request $request, $id)
+    {
+        try {
+            $request->validate([
+                'id' => 'required',
+            ]);
+        } catch (\Exception $e) {
+            return response([
+                'message' => ['Invalid or missing fields']
+            ], 400);
+        }
+
+        $user = User::find($request->id);
+        if ($user === null) {
+            return response([
+                'message' => ['Unknown user']
+            ], 404);
+        }
+
+        $survey = $request->get('survey');
+        foreach ($survey->happenings as $happening) {
+            $happening->members()->detach($request->id);
+        }
+
+        $survey = Survey::find($id);
+        $survey->team;
+        $survey->happenings;
+
+        return response($survey, 200);
     }
 }
