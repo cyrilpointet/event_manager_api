@@ -200,7 +200,10 @@ class InvitationController extends Controller
 
         $user->teams;
         $user->invitations;
-
+        $user->happenings;
+        foreach ($user->happenings as $happening) {
+            $happening->team;
+        }
         return $user;
     }
 }

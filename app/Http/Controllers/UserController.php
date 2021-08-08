@@ -52,6 +52,9 @@ class UserController extends Controller
         $user->teams;
         $user->invitations;
         $user->happenings;
+        foreach ($user->happenings as $happening) {
+            $happening->team;
+        }
 
         $response = [
             'user' => $user,
@@ -92,6 +95,9 @@ class UserController extends Controller
         $user->teams;
         $user->invitations;
         $user->happenings;
+        foreach ($user->happenings as $happening) {
+            $happening->team;
+        }
 
         $response = [
             'user' => $user,
@@ -110,6 +116,9 @@ class UserController extends Controller
         $user->teams;
         $user->invitations;
         $user->happenings;
+        foreach ($user->happenings as $happening) {
+            $happening->team;
+        }
         return $user;
     }
 
@@ -155,8 +164,12 @@ class UserController extends Controller
 
         $team->members()->detach($user->id);
 
-        return response([
-            "message" => "Team leaved"
-        ], 200);
+        $user->teams;
+        $user->invitations;
+        $user->happenings;
+        foreach ($user->happenings as $happening) {
+            $happening->team;
+        }
+        return $user;
     }
 }
