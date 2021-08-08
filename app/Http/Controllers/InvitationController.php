@@ -100,6 +100,14 @@ class InvitationController extends Controller
             ], 404);
         }
 
+        $teams = $user->teams()->where('team_id', $request->route('id'))->get();
+        if (0 !== count($teams)) {
+            $invitation->delete();
+            return response([
+                'message' => ['User is already a team member']
+            ], 403);
+        }
+
         if (true === $request->status) {
             $team->members()->attach($user->id, ['admin' => false]);
         }
@@ -189,7 +197,7 @@ class InvitationController extends Controller
         $user = $request->user();
         if ($user->email !== $invitation->user_email || true !== $invitation->is_from_team) {
             return response([
-                "message" => "insufficient rights"
+                "message" => "Insufficient rights"
             ], 403);
         }
 

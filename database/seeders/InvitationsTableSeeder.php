@@ -24,7 +24,7 @@ class InvitationsTableSeeder extends Seeder
 
         Invitation::create([
             'team_id' => 1,
-            'user_email' => 'user4@user.user',
+            'user_email' => 'user5@user.user',
             'is_from_team' => false
         ]);
     }
