@@ -147,7 +147,7 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\": \"User\"\n}",
+					"raw": "",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -155,13 +155,14 @@
 					}
 				},
 				"url": {
-					"raw": "{{base_url}}/user/name",
+					"raw": "{{base_url}}/user/name/user",
 					"host": [
 						"{{base_url}}"
 					],
 					"path": [
 						"user",
-						"name"
+						"name",
+						"user"
 					]
 				}
 			},

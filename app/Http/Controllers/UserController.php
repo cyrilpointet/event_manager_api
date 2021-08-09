@@ -124,21 +124,11 @@ class UserController extends Controller
 
     /**
      * Get users by name or email
-     * @bodyParam name string required The user's name or email
+     * @urlParam name string required The user's name or email
      */
-    public function getUserByNameOrEmail(Request $request)
+    public function getUserByNameOrEmail(Request $request, $name)
     {
-        try {
-            $request->validate([
-                'name' => 'required',
-            ]);
-        } catch (\Exception $e) {
-            return response([
-                'message' => ['Invalid or missing fields']
-            ], 401);
-        }
-
-        return User::where('name', 'like', '%' . $request->name . '%')->orWhere('email', 'like', '%' . $request->name . '%')->take(10)->get();
+        return User::where('name', 'like', '%' . $request->name . '%')->orWhere('email', 'like', '%' . $name . '%')->take(10)->get();
     }
 
     /**

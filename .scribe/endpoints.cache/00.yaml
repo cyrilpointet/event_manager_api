@@ -21,7 +21,7 @@ endpoints:
         name: id
         description: 'The happening id'
         required: true
-        example: 1
+        example: 10
         type: integer
     queryParameters: []
     bodyParameters: []
@@ -51,7 +51,7 @@ endpoints:
         name: id
         description: 'The happening id'
         required: true
-        example: 14
+        example: 5
         type: integer
     queryParameters: []
     bodyParameters:
@@ -59,7 +59,7 @@ endpoints:
         name: presence
         description: 'the user presence: yes|maybe|no'
         required: true
-        example: inventore
+        example: possimus
         type: string
     responses: []
     responseFields: []
@@ -79,7 +79,7 @@ endpoints:
         name: id
         description: 'The Happening id'
         required: true
-        example: 18
+        example: 5
         type: integer
     queryParameters: []
     bodyParameters:
@@ -87,37 +87,37 @@ endpoints:
         name: name
         description: 'Happening name'
         required: true
-        example: qui
+        example: quo
         type: string
       description:
         name: description
         description: 'Happening description'
         required: true
-        example: eos
+        example: ut
         type: string
       place:
         name: place
         description: 'Happening place'
         required: true
-        example: autem
+        example: nisi
         type: string
       status:
         name: status
         description: 'Happening status: project, validated or canceled'
         required: true
-        example: necessitatibus
+        example: rerum
         type: string
       startAt:
         name: startAt
         description: 'Happening start. Date in string'
         required: true
-        example: illo
+        example: consequatur
         type: string
       endAt:
         name: endAt
         description: 'Happening end. Date in string'
         required: true
-        example: quas
+        example: facere
         type: string
     responses: []
     responseFields: []
@@ -137,7 +137,7 @@ endpoints:
         name: id
         description: 'The happening id'
         required: true
-        example: 12
+        example: 6
         type: integer
     queryParameters: []
     bodyParameters:
@@ -145,7 +145,7 @@ endpoints:
         name: id
         description: 'the user id to be added'
         required: true
-        example: 19
+        example: 1
         type: integer
     responses: []
     responseFields: []
@@ -165,7 +165,7 @@ endpoints:
         name: id
         description: 'The happening id'
         required: true
-        example: 5
+        example: 6
         type: integer
     queryParameters: []
     bodyParameters:
@@ -173,7 +173,7 @@ endpoints:
         name: id
         description: 'the user id to be added'
         required: true
-        example: 11
+        example: 19
         type: integer
     responses: []
     responseFields: []
@@ -193,7 +193,7 @@ endpoints:
         name: id
         description: 'The happening id'
         required: true
-        example: 16
+        example: 11
         type: integer
     queryParameters: []
     bodyParameters: []
@@ -215,7 +215,7 @@ endpoints:
         name: id
         description: 'The happening id'
         required: true
-        example: 20
+        example: 1
         type: integer
     queryParameters: []
     bodyParameters:
@@ -223,7 +223,7 @@ endpoints:
         name: text
         description: 'the comment''s content'
         required: true
-        example: voluptate
+        example: debitis
         type: string
     responses: []
     responseFields: []
@@ -243,13 +243,13 @@ endpoints:
         name: id
         description: 'The happening id'
         required: true
-        example: 18
+        example: 2
         type: integer
       comment_id:
         name: comment_id
         description: 'the comment id to be removed'
         required: true
-        example: 1
+        example: 11
         type: integer
     queryParameters: []
     bodyParameters: []
@@ -271,7 +271,7 @@ endpoints:
         name: id
         description: 'The team''s id'
         required: true
-        example: 5
+        example: 4
         type: integer
     queryParameters: []
     bodyParameters:
@@ -279,39 +279,39 @@ endpoints:
         name: name
         description: 'Happening name'
         required: true
-        example: maiores
+        example: beatae
         type: string
       description:
         name: description
         description: 'Happening description'
         required: true
-        example: cum
+        example: voluptatem
         type: string
       place:
         name: place
         description: 'Happening place'
         required: true
-        example: accusantium
+        example: in
         type: string
       members:
         name: members
         description: 'Members ids'
         required: true
         example:
-          - 2
-          - 15
+          - 14
+          - 8
         type: 'integer[]'
       startAt:
         name: startAt
         description: 'Happening start. Date in string'
         required: true
-        example: aut
+        example: saepe
         type: string
       endAt:
         name: endAt
         description: 'Happening end. Date in string'
         required: true
-        example: accusamus
+        example: fugit
         type: string
     responses: []
     responseFields: []

@@ -19,7 +19,7 @@ endpoints:
         name: id
         description: 'The survey''s id'
         required: true
-        example: 14
+        example: 15
         type: integer
     queryParameters: []
     bodyParameters:
@@ -27,19 +27,19 @@ endpoints:
         name: name
         description: 'Happening name'
         required: true
-        example: non
+        example: perferendis
         type: string
       description:
         name: description
         description: 'Happening description'
         required: true
-        example: veritatis
+        example: consequatur
         type: string
       place:
         name: place
         description: 'Happening place'
         required: true
-        example: labore
+        example: tenetur
         type: string
     responses: []
     responseFields: []
@@ -59,7 +59,7 @@ endpoints:
         name: id
         description: 'The survey''s id'
         required: true
-        example: 19
+        example: 18
         type: integer
     queryParameters: []
     bodyParameters:
@@ -68,8 +68,8 @@ endpoints:
         description: 'Happenings ids to be validated. Others will be deleted'
         required: true
         example:
-          - 20
-          - 14
+          - 4
+          - 8
         type: 'integer[]'
     responses: []
     responseFields: []
@@ -89,7 +89,7 @@ endpoints:
         name: id
         description: 'The team''s id'
         required: true
-        example: 4
+        example: 12
         type: integer
     queryParameters: []
     bodyParameters:
@@ -97,19 +97,19 @@ endpoints:
         name: name
         description: 'Happening name'
         required: true
-        example: deserunt
+        example: eum
         type: string
       description:
         name: description
         description: 'Happening description'
         required: true
-        example: quis
+        example: non
         type: string
       place:
         name: place
         description: 'Happening place'
         required: true
-        example: sit
+        example: animi
         type: string
       dates:
         name: dates
@@ -123,13 +123,13 @@ endpoints:
         name: dates.start
         description: 'Happening start. Date in string'
         required: false
-        example: quia
+        example: sequi
         type: string
       dates.end:
         name: dates.end
         description: 'Happening end. Date in string'
         required: false
-        example: repellat
+        example: sunt
         type: string
     responses: []
     responseFields: []
@@ -149,7 +149,7 @@ endpoints:
         name: id
         description: 'The survey''s id'
         required: true
-        example: 19
+        example: 18
         type: integer
     queryParameters: []
     bodyParameters: []
@@ -179,7 +179,7 @@ endpoints:
         name: id
         description: 'The survey id'
         required: true
-        example: 20
+        example: 5
         type: integer
     queryParameters: []
     bodyParameters:
@@ -187,7 +187,7 @@ endpoints:
         name: id
         description: 'the user id to be added'
         required: true
-        example: 10
+        example: 12
         type: integer
     responses: []
     responseFields: []
@@ -207,7 +207,7 @@ endpoints:
         name: id
         description: 'The survey id'
         required: true
-        example: 4
+        example: 1
         type: integer
     queryParameters: []
     bodyParameters:
@@ -215,7 +215,7 @@ endpoints:
         name: id
         description: 'the user id to be added'
         required: true
-        example: 2
+        example: 20
         type: integer
     responses: []
     responseFields: []
