@@ -19,8 +19,8 @@ class HappeningController extends Controller
      * Create a new happening
      * @urlParam id int required The team's id
      * @bodyParam name string required Happening name
-     * @bodyParam description string required Happening description
-     * @bodyParam place string required Happening place
+     * @bodyParam description string present Happening description
+     * @bodyParam place string present Happening place
      * @bodyParam members int[] required Members ids
      * @bodyParam startAt string required Happening start. Date in string
      * @bodyParam endAt string required Happening end. Date in string
@@ -30,8 +30,8 @@ class HappeningController extends Controller
         try {
             $request->validate([
                 'name' => 'required',
-                'description' => 'required',
-                'place' => 'required',
+                'description' => 'present',
+                'place' => 'present',
                 'startAt' => 'required',
                 'endAt' => 'required',
                 'members' => 'required'
@@ -69,10 +69,14 @@ class HappeningController extends Controller
             }
         }
 
+        $id = $happening->id;
+        $happening = Happening::find($id);
         $happening->team;
         $happening->members;
         $happening->comments;
-        $happening->survey;
+        foreach ($happening->comments as $comment) {
+            $comment->user;
+        }
 
         return response($happening, 200);
     }
@@ -126,7 +130,9 @@ class HappeningController extends Controller
         $happening->team;
         $happening->members;
         $happening->comments;
-        $happening->survey;
+        foreach ($happening->comments as $comment) {
+            $comment->user;
+        }
 
         return response($happening, 200);
     }
@@ -146,7 +152,9 @@ class HappeningController extends Controller
         $happening->team;
         $happening->members;
         $happening->comments;
-        $happening->survey;
+        foreach ($happening->comments as $comment) {
+            $comment->user;
+        }
 
         return $happening;
     }
@@ -197,7 +205,9 @@ class HappeningController extends Controller
         $happening->team;
         $happening->members;
         $happening->comments;
-        $happening->survey;
+        foreach ($happening->comments as $comment) {
+            $comment->user;
+        }
 
         return response($happening, 200);
     }
@@ -233,7 +243,9 @@ class HappeningController extends Controller
         $happening->team;
         $happening->members;
         $happening->comments;
-        $happening->survey;
+        foreach ($happening->comments as $comment) {
+            $comment->user;
+        }
 
         return $happening;
     }
@@ -260,7 +272,9 @@ class HappeningController extends Controller
         $happening->team;
         $happening->members;
         $happening->comments;
-        $happening->survey;
+        foreach ($happening->comments as $comment) {
+            $comment->user;
+        }
 
         return response($happening, 200);
     }
@@ -292,7 +306,9 @@ class HappeningController extends Controller
         $happening->team;
         $happening->members;
         $happening->comments;
-        $happening->survey;
+        foreach ($happening->comments as $comment) {
+            $comment->user;
+        }
 
         return response($happening, 201);
     }
@@ -332,7 +348,9 @@ class HappeningController extends Controller
         $happening->team;
         $happening->members;
         $happening->comments;
-        $happening->survey;
+        foreach ($happening->comments as $comment) {
+            $comment->user;
+        }
 
         return response($happening, 200);
     }

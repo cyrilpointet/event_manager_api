@@ -53,5 +53,19 @@ class HappeningsTableSeeder extends Seeder
         ]);
         $test3->members()->attach(2);
         $test3->members()->attach(3);
+
+        $start = new \DateTime('2021-11-28 11:21:50');
+        $end = new \DateTime('2021-11-28 12:21:50');
+        $test3 = Happening::create([
+            'name' => 'test event group 2',
+            'description' => 'description test',
+            'place' => 'place test',
+            'team_id' => 2,
+            'start_at' => $start,
+            'end_at' => $end
+        ]);
+        $test3->members()->attach(2);
+        $test3->members()->attach(3);
+        $test3->members()->attach(1);
     }
 }
