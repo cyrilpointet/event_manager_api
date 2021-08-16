@@ -96,8 +96,8 @@ class HappeningController extends Controller
         try {
             $request->validate([
                 'name' => 'required',
-                'description' => 'required',
-                'place' => 'required',
+                'description' => 'present',
+                'place' => 'present',
                 'status' => ['required', 'regex:/project|validated|canceled/'],
                 'startAt' => 'required',
                 'endAt' => 'required',
