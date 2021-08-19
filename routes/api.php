@@ -50,7 +50,7 @@ Route::middleware(['auth:sanctum', 'isHappeningAdmin'])->group(function () {
     Route::delete('/happening/{id}', [HappeningController::class, 'delete']);
 });
 
-Route::middleware(['auth:sanctum', 'isSurveyAdmin'])->group(function () {
+Route::middleware(['auth:sanctum', 'isSurveyMember'])->group(function () {
     Route::get('/survey/{id}', [SurveyController::class, 'show']);
 });
 

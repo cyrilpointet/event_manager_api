@@ -77,7 +77,9 @@ class SurveyController extends Controller
         }
 
         $survey->team;
-        $survey->happenings;
+        foreach ($survey->happenings as $happening) {
+            $happening->members;
+        }
 
         return response($survey, 201);
     }
@@ -95,7 +97,9 @@ class SurveyController extends Controller
             ], 404);
         }
         $survey->team;
-        $survey->happenings;
+        foreach ($survey->happenings as $happening) {
+            $happening->members;
+        }
 
         return response($survey, 200);
     }
@@ -131,7 +135,9 @@ class SurveyController extends Controller
         }
 
         $survey->team;
-        $survey->happenings;
+        foreach ($survey->happenings as $happening) {
+            $happening->members;
+        }
 
         return response($survey, 200);
     }
@@ -162,6 +168,7 @@ class SurveyController extends Controller
             } else {
                 $happening->survey_id = null;
                 $happening->save();
+                $happening->members;
                 $happenings[] = $happening;
             }
         }
@@ -218,7 +225,9 @@ class SurveyController extends Controller
 
         $survey = Survey::find($id);
         $survey->team;
-        $survey->happenings;
+        foreach ($survey->happenings as $happening) {
+            $happening->members;
+        }
 
         return response($survey, 200);
     }
@@ -254,7 +263,9 @@ class SurveyController extends Controller
 
         $survey = Survey::find($id);
         $survey->team;
-        $survey->happenings;
+        foreach ($survey->happenings as $happening) {
+            $happening->members;
+        }
 
         return response($survey, 200);
     }
