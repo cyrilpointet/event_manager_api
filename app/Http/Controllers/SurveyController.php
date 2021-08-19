@@ -151,7 +151,7 @@ class SurveyController extends Controller
     {
         try {
             $request->validate([
-                'happenings' => 'required',
+                'happenings' => 'present',
             ]);
         } catch (\Exception $e) {
             return response([
