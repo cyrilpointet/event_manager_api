@@ -21,7 +21,7 @@ endpoints:
         name: id
         description: 'The survey''s id'
         required: true
-        example: 16
+        example: 12
         type: integer
     queryParameters: []
     bodyParameters:
@@ -29,19 +29,19 @@ endpoints:
         name: name
         description: 'Happening name'
         required: true
-        example: necessitatibus
+        example: et
         type: string
       description:
         name: description
         description: 'Happening description'
         required: true
-        example: sunt
+        example: tempore
         type: string
       place:
         name: place
         description: 'Happening place'
         required: true
-        example: delectus
+        example: autem
         type: string
     responses: []
     responseFields: []
@@ -61,7 +61,7 @@ endpoints:
         name: id
         description: 'The survey''s id'
         required: true
-        example: 5
+        example: 7
         type: integer
     queryParameters: []
     bodyParameters:
@@ -70,8 +70,8 @@ endpoints:
         description: 'Happenings ids to be validated. Others will be deleted'
         required: true
         example:
-          - 9
-          - 4
+          - 12
+          - 1
         type: 'integer[]'
     responses: []
     responseFields: []
@@ -91,7 +91,7 @@ endpoints:
         name: id
         description: 'The team''s id'
         required: true
-        example: 18
+        example: 7
         type: integer
     queryParameters: []
     bodyParameters:
@@ -99,20 +99,28 @@ endpoints:
         name: name
         description: 'Happening name'
         required: true
-        example: similique
+        example: quos
         type: string
       description:
         name: description
         description: 'Happening description'
         required: true
-        example: provident
+        example: modi
         type: string
       place:
         name: place
         description: 'Happening place'
         required: true
-        example: ut
+        example: laboriosam
         type: string
+      members:
+        name: members
+        description: 'users ids'
+        required: true
+        example:
+          - 7
+          - 12
+        type: 'integer[]'
       dates:
         name: dates
         description: ''
@@ -125,13 +133,13 @@ endpoints:
         name: dates.start
         description: 'Happening start. Date in string'
         required: false
-        example: ut
+        example: facere
         type: string
       dates.end:
         name: dates.end
         description: 'Happening end. Date in string'
         required: false
-        example: tenetur
+        example: praesentium
         type: string
     responses: []
     responseFields: []
@@ -151,7 +159,7 @@ endpoints:
         name: id
         description: 'The survey''s id'
         required: true
-        example: 18
+        example: 15
         type: integer
     queryParameters: []
     bodyParameters: []
@@ -181,7 +189,7 @@ endpoints:
         name: id
         description: 'The survey id'
         required: true
-        example: 6
+        example: 12
         type: integer
     queryParameters: []
     bodyParameters:
@@ -189,7 +197,7 @@ endpoints:
         name: id
         description: 'the user id to be added'
         required: true
-        example: 19
+        example: 17
         type: integer
     responses: []
     responseFields: []
@@ -209,7 +217,7 @@ endpoints:
         name: id
         description: 'The survey id'
         required: true
-        example: 7
+        example: 10
         type: integer
     queryParameters: []
     bodyParameters:
@@ -217,7 +225,7 @@ endpoints:
         name: id
         description: 'the user id to be added'
         required: true
-        example: 10
+        example: 12
         type: integer
     responses: []
     responseFields: []

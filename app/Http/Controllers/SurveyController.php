@@ -21,6 +21,7 @@ class SurveyController extends Controller
      * @bodyParam name string required Happening name
      * @bodyParam description string required Happening description
      * @bodyParam place string required Happening place
+     * @bodyParam members int[] required users ids
      * @bodyParam dates object[] required
      * @bodyParam dates.start string Happening start. Date in string
      * @bodyParam dates.end string Happening end. Date in string
@@ -30,8 +31,8 @@ class SurveyController extends Controller
         try {
             $request->validate([
                 'name' => 'required',
-                'description' => 'required',
-                'place' => 'required',
+                'description' => 'present',
+                'place' => 'present',
                 'dates' => 'required',
                 'members' => 'required'
             ]);
@@ -116,8 +117,8 @@ class SurveyController extends Controller
         try {
             $request->validate([
                 'name' => 'required',
-                'description' => 'required',
-                'place' => 'required',
+                'description' => 'present',
+                'place' => 'present',
             ]);
         } catch (\Exception $e) {
             return response([
