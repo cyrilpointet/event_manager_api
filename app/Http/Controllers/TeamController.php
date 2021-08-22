@@ -66,19 +66,9 @@ class TeamController extends Controller
      * Get teams by name
      * @bodyParam name string required The team's name
      */
-    public function getTeamsByName(Request $request)
+    public function getTeamsByName(Request $request, $name)
     {
-        try {
-            $request->validate([
-                'name' => 'required',
-            ]);
-        } catch (\Exception $e) {
-            return response([
-                'message' => ['Invalid or missing fields']
-            ], 400);
-        }
-
-        return Team::where('name', 'like', '%' . $request->name . '%')->get();
+        return Team::where('name', 'like', '%' . $name . '%')->get();
     }
 
     /**
