@@ -1,0 +1,46 @@
+.coucou {
+  color: red;
+  @media (min-width: 960px) {
+    color: yellow;
+  }
+}
+
+.mainPage {
+  display: grid;
+  grid-gap: 1.5rem;
+  grid-template-columns: 100%;
+  @media (min-width: 960px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.transiting {
+  transition: all .2s linear !important;
+}
+
+// Animations
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .2s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
+}
+
+.turn-enter-active, .turn-leave-active {
+  transition: all .2s;
+}
+.turn-enter, .turn-leave-to {
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.list-complete-item {
+  transition: all .2s;
+}
+.list-enter, .list-leave-to {
+  opacity: 0;
+  transform: translateX(-50%);
+}
+.list-leave-active {
+  position: absolute;
+}

@@ -1,28 +1,79 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
+    <title>Tevma - home</title>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
-
-        <!-- Styles -->
-        <style>
-            /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}a{background-color:transparent}[hidden]{display:none}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}*,:after,:before{box-sizing:border-box;border:0 solid #e2e8f0}a{color:inherit;text-decoration:inherit}svg,video{display:block;vertical-align:middle}video{max-width:100%;height:auto}.bg-white{--bg-opacity:1;background-color:#fff;background-color:rgba(255,255,255,var(--bg-opacity))}.bg-gray-100{--bg-opacity:1;background-color:#f7fafc;background-color:rgba(247,250,252,var(--bg-opacity))}.border-gray-200{--border-opacity:1;border-color:#edf2f7;border-color:rgba(237,242,247,var(--border-opacity))}.border-t{border-top-width:1px}.flex{display:flex}.grid{display:grid}.hidden{display:none}.items-center{align-items:center}.justify-center{justify-content:center}.font-semibold{font-weight:600}.h-5{height:1.25rem}.h-8{height:2rem}.h-16{height:4rem}.text-sm{font-size:.875rem}.text-lg{font-size:1.125rem}.leading-7{line-height:1.75rem}.mx-auto{margin-left:auto;margin-right:auto}.ml-1{margin-left:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.ml-2{margin-left:.5rem}.mt-4{margin-top:1rem}.ml-4{margin-left:1rem}.mt-8{margin-top:2rem}.ml-12{margin-left:3rem}.-mt-px{margin-top:-1px}.max-w-6xl{max-width:72rem}.min-h-screen{min-height:100vh}.overflow-hidden{overflow:hidden}.p-6{padding:1.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pt-8{padding-top:2rem}.fixed{position:fixed}.relative{position:relative}.top-0{top:0}.right-0{right:0}.shadow{box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)}.text-center{text-align:center}.text-gray-200{--text-opacity:1;color:#edf2f7;color:rgba(237,242,247,var(--text-opacity))}.text-gray-300{--text-opacity:1;color:#e2e8f0;color:rgba(226,232,240,var(--text-opacity))}.text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.text-gray-500{--text-opacity:1;color:#a0aec0;color:rgba(160,174,192,var(--text-opacity))}.text-gray-600{--text-opacity:1;color:#718096;color:rgba(113,128,150,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-900{--text-opacity:1;color:#1a202c;color:rgba(26,32,44,var(--text-opacity))}.underline{text-decoration:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.w-5{width:1.25rem}.w-8{width:2rem}.w-auto{width:auto}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}@media (min-width:640px){.sm\:rounded-lg{border-radius:.5rem}.sm\:block{display:block}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:h-20{height:5rem}.sm\:ml-0{margin-left:0}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:pt-0{padding-top:0}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width:768px){.md\:border-t-0{border-top-width:0}.md\:border-l{border-left-width:1px}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}@media (prefers-color-scheme:dark){.dark\:bg-gray-800{--bg-opacity:1;background-color:#2d3748;background-color:rgba(45,55,72,var(--bg-opacity))}.dark\:bg-gray-900{--bg-opacity:1;background-color:#1a202c;background-color:rgba(26,32,44,var(--bg-opacity))}.dark\:border-gray-700{--border-opacity:1;border-color:#4a5568;border-color:rgba(74,85,104,var(--border-opacity))}.dark\:text-white{--text-opacity:1;color:#fff;color:rgba(255,255,255,var(--text-opacity))}.dark\:text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}}
-        </style>
-
-        <style>
-            body {
-                font-family: 'Nunito', sans-serif;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-            <h1>Event Manager Api</h1>
-        </div>
-    </body>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" integrity="sha512-NmLkDIU1C/C88wi324HBc+S2kLhi08PN5GDeUVVVC/BVt/9Izdsc9SVeVfA1UZbY3sHUlDSyRXhCzHfr6hmPPw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+{{--    <style>--}}
+{{--        body {--}}
+{{--            font-family: 'Nunito', sans-serif;--}}
+{{--        }--}}
+{{--        main {--}}
+{{--            width: 100%;--}}
+{{--            display: flex;--}}
+{{--            flex-direction: column;--}}
+{{--            align-items: center;--}}
+{{--        }--}}
+{{--        .cls-1 {--}}
+{{--            fill: #008e99;--}}
+{{--        }--}}
+{{--        #logo {--}}
+{{--            max-width: 500px;--}}
+{{--            display: block;--}}
+{{--            margin-left: auto;--}}
+{{--            margin-right: auto;--}}
+{{--            margin-top: 3rem;--}}
+{{--            margin-bottom: 1rem;--}}
+{{--            padding: 0 1rem;--}}
+{{--        }--}}
+{{--        .title {--}}
+{{--            font-size: 2rem;--}}
+{{--            text-align: center;--}}
+{{--            font-weight: bold;--}}
+{{--            margin-bottom: 3rem;--}}
+{{--            color: #008e99;--}}
+{{--        }--}}
+{{--        .button {--}}
+{{--            padding: 0.5rem 1rem;--}}
+{{--            background-color: #008e99;--}}
+{{--            color: white;--}}
+{{--            text-transform: uppercase;--}}
+{{--            border-radius: 0.5rem;--}}
+{{--            cursor: pointer;--}}
+{{--        }--}}
+{{--    </style>--}}
+</head>
+<body>
+<main id="app">
+{{--    <svg id="logo" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1117.63 364.06">--}}
+{{--        <title>tevma_full</title>--}}
+{{--        <path id="T" class="cls-1" d="M268.23,74.77v46.49H195.17V317H140.64V121.26H67.59V74.77Z"--}}
+{{--              transform="translate(0.35 -0.44)"/>--}}
+{{--        <path id="Calendar" class="cls-1"--}}
+{{--              d="M315,323.85a103.55,103.55,0,0,1-17.51-9v19H32.74V66.64H297.52v68.83a92,92,0,0,1,18.94-10.22,100.53,100.53,0,0,1,14.16-4.42V66.64a33.19,33.19,0,0,0-33.1-33.1H281V.44h-33.1v33.1H82.39V.44H49.29v33.1H32.74A33.19,33.19,0,0,0-.35,66.64V331.41a33.19,33.19,0,0,0,33.1,33.1H297.52a33.19,33.19,0,0,0,33.1-33.1v-2.77A103.51,103.51,0,0,1,315,323.85Z"--}}
+{{--              transform="translate(0.35 -0.44)"/>--}}
+{{--        <path class="cls-1"--}}
+{{--              d="M264.73,226.48q0-24.46,7.52-42.82T292,153.07a82.15,82.15,0,0,1,28.14-18.53,88.09,88.09,0,0,1,32.68-6.29q39.14,0,61.87,23.94t22.72,70.43q0,4.55-.35,10t-.7,9.61H318.21a34.58,34.58,0,0,0,15,25.52q13.28,9.44,35.65,9.44A150.64,150.64,0,0,0,397,274.54q13.8-2.62,22.54-6.47l7,42.3a72.14,72.14,0,0,1-11.19,4.19,147.12,147.12,0,0,1-15.55,3.67q-8.57,1.57-18.35,2.62a183.59,183.59,0,0,1-19.58,1q-24.82,0-43.17-7.34t-30.41-20.1a79.73,79.73,0,0,1-17.83-30.24A119.76,119.76,0,0,1,264.73,226.48Zm122.34-19.92a54.09,54.09,0,0,0-2.27-12.93,32.41,32.41,0,0,0-5.94-11.19,31.7,31.7,0,0,0-10.14-8q-6.12-3.15-15.2-3.15a35,35,0,0,0-15,3A31.12,31.12,0,0,0,328,182.08a35.2,35.2,0,0,0-6.47,11.36,74.51,74.51,0,0,0-3.32,13.11Z"--}}
+{{--              transform="translate(0.35 -0.44)"/>--}}
+{{--        <path id="V" class="cls-1"--}}
+{{--              d="M527.86,317q-17.89-35-36.31-81.79T456.64,133.15h55.23q3.5,13.63,8.25,29.54t9.83,32.16q5.09,16.25,10.18,31.64t10,28q4.55-12.58,9.82-28t10.35-31.64q5.09-16.25,9.82-32.16t8.25-29.54h53.86q-16.48,55.23-34.88,102.07T571.08,317Z"--}}
+{{--              transform="translate(0.35 -0.44)"/>--}}
+{{--        <path id="M" class="cls-1"--}}
+{{--              d="M770.88,219.48q0-25.17-6.47-35.65t-22.2-10.49q-4.9,0-10.14.53t-10.14,1.22V317H669.86V139.44q6.63-1.74,15.55-3.67t18.88-3.5q10-1.57,20.45-2.45t20.62-.87q19.92,0,32.33,5.07a73.12,73.12,0,0,1,20.45,12.06A97.38,97.38,0,0,1,850.57,129q22,0,36.18,6.12a54.55,54.55,0,0,1,22.55,17.3,65.54,65.54,0,0,1,11.54,26.57A171.53,171.53,0,0,1,924,213.19V317H871.9V219.48q0-25.17-6.47-35.65t-22.2-10.49a46.88,46.88,0,0,0-11.71,2.1,45.62,45.62,0,0,0-12.41,5.24,79.79,79.79,0,0,1,3.15,17q.69,8.91.7,19.05V317H770.88Z"--}}
+{{--              transform="translate(0.35 -0.44)"/>--}}
+{{--        <path id="A" class="cls-1"--}}
+{{--              d="M1037.23,128.25q23.07,0,38.45,5.24t24.64,15a55.35,55.35,0,0,1,13.11,23.77,117.29,117.29,0,0,1,3.85,31.11V311.77q-11.19,2.45-31.11,5.77t-48.24,3.32a153,153,0,0,1-32.33-3.15,70.14,70.14,0,0,1-25-10.31,47.14,47.14,0,0,1-16.08-18.7q-5.6-11.54-5.59-28.31,0-16.07,6.47-27.27a49.74,49.74,0,0,1,17.3-17.83,78.27,78.27,0,0,1,24.82-9.61,139.47,139.47,0,0,1,29-3,165.06,165.06,0,0,1,18,.88,80.78,80.78,0,0,1,12.76,2.27V201q0-13.28-8-21.32t-28-8a178.37,178.37,0,0,0-26.22,1.92,112.86,112.86,0,0,0-22.37,5.42L976.06,137q4.54-1.39,11.36-3t14.85-2.8q8-1.22,17-2.1T1037.23,128.25Zm4.19,152.4q7.69,0,14.68-.35a100.06,100.06,0,0,0,11.19-1v-39.5q-3.14-.7-9.44-1.4a105.5,105.5,0,0,0-11.54-.7,104,104,0,0,0-13.81.87,36.21,36.21,0,0,0-11.36,3.32,19.49,19.49,0,0,0-7.69,6.64,18.48,18.48,0,0,0-2.8,10.49q0,12.24,8.22,17T1041.43,280.66Z"--}}
+{{--              transform="translate(0.35 -0.44)"/>--}}
+{{--    </svg>--}}
+{{--    <h1 class="title">Your event manager</h1>--}}
+{{--    <a href="http://localhost:8080/">--}}
+{{--        <button class="button">Entrer</button>--}}
+{{--    </a>--}}
+    <script type="text/javascript" src="{{ URL::asset('js/main.js') }}"></script>
+</main>
+</body>
 </html>
