@@ -4,6 +4,10 @@
             <Account />
         </div>
         <div v-else>
+            <div class="logoContainer">
+                <Logo />
+            </div>
+
             <transition name="turn" mode="out-in">
                 <v-card
                     v-if="hasAccount"
@@ -34,7 +38,7 @@
                 <v-btn
                     small
                     rounded
-                    color="primary black--text"
+                    color="primary white--text"
                     @click="hasAccount = !hasAccount"
                 >
                     {{
@@ -53,10 +57,11 @@ import { mapGetters, mapState } from "vuex";
 import Login from "../components/user/Login";
 import Register from "../components/user/Register";
 import Account from "../components/user/Account";
+import Logo from "../components/common/logo";
 
 export default {
     name: "UserPage",
-    components: { Login, Register, Account },
+    components: { Login, Register, Account, Logo },
     data() {
         return {
             hasAccount: false,
@@ -75,3 +80,13 @@ export default {
     },
 };
 </script>
+
+<style lang="scss" scoped>
+.logoContainer {
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+</style>

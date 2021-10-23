@@ -40,4 +40,12 @@ export class SurveyHappening {
     get endAt() {
         return dayjs(this.end_at).utc().format("DD-MM-YYYY \n HH:mm");
     }
+
+    get endAtDay() {
+        return dayjs(this.end_at).utc().format("DD-MM-YYYY");
+    }
+
+    get endAtHour() {
+        return dayjs(this.end_at).utc().format("HH:mm");
+    }
 }

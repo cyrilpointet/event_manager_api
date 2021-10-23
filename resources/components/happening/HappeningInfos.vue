@@ -11,15 +11,15 @@
             "
         >
             <span class="flex-grow-1">
-                <h5>Groupe</h5>
+                <h5 class="text-subtitle-2">Groupe</h5>
                 <p>{{ happening.team.name }}</p>
             </span>
             <v-icon> mdi-chevron-right </v-icon>
         </div>
 
-        <h5>Lieu</h5>
+        <h5 class="text-subtitle-2">Lieu</h5>
         <p>{{ happening.place }}</p>
-        <h5>Description</h5>
+        <h5 class="text-subtitle-2">Description</h5>
         <p>{{ happening.description }}</p>
         <div class="d-flex">
             <div class="flex-grow-1">

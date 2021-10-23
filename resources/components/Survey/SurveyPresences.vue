@@ -16,12 +16,13 @@
             <thead>
                 <th>Fin</th>
                 <th
-                    style="white-space: pre-line"
+                    style="white-space: nowrap"
                     class="pa-2"
                     v-for="happening in survey.happenings"
                     :key="happening.id"
                 >
-                    {{ happening.endAt }}
+                    {{ happening.endAtDay }}<br />
+                    {{ happening.startAtHour }}
                 </th>
             </thead>
             <tbody>
@@ -33,8 +34,11 @@
                             :key="hi"
                             class="pa-0"
                             :class="getColor(happening.members[mi].presence)"
+                            style="position: relative"
                         >
-                            <span class="d-flex justify-center align-center">
+                            <span
+                                class="d-flex justify-center align-center cell"
+                            >
                                 <v-icon>
                                     {{
                                         getIcon(happening.members[mi].presence)
@@ -48,7 +52,9 @@
                             class="pa-0"
                             :class="getColor(happening.members[mi].presence)"
                         >
-                            <span class="d-flex justify-center">
+                            <span
+                                class="d-flex justify-center align-center cell"
+                            >
                                 <v-menu offset-y :disabled="ajaxPending">
                                     <template v-slot:activator="{ on, attrs }">
                                         <v-btn v-bind="attrs" v-on="on">
@@ -171,5 +177,12 @@ th {
 }
 .isEditable {
     background-color: lightgrey;
+}
+.cell {
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }
 </style>

@@ -12,40 +12,39 @@
                     <td>{{ member.name }}</td>
                     <td
                         :class="getColor(member.presence)"
+                        class="d-flex justify-center align-center"
                         v-if="user.id === member.id"
                     >
-                        <span class="d-flex justify-center">
-                            <v-menu offset-y :disabled="ajaxPending">
-                                <template v-slot:activator="{ on, attrs }">
-                                    <v-btn v-bind="attrs" v-on="on" rounded>
-                                        <v-icon
-                                            :color="getColor(member.presence)"
-                                        >
-                                            {{ getIcon(member.presence) }}
-                                        </v-icon>
-                                    </v-btn>
-                                </template>
-                                <v-list>
-                                    <v-list-item
-                                        v-for="(item, index) in items"
-                                        :key="index"
-                                        @click="handleChange(item.value)"
-                                    >
-                                        <v-icon :color="item.color">{{
-                                            item.icon
-                                        }}</v-icon>
-                                    </v-list-item>
-                                </v-list>
-                            </v-menu>
-                        </span>
+                        <v-menu offset-y :disabled="ajaxPending">
+                            <template v-slot:activator="{ on, attrs }">
+                                <v-btn v-bind="attrs" v-on="on" rounded>
+                                    <v-icon :color="getColor(member.presence)">
+                                        {{ getIcon(member.presence) }}
+                                    </v-icon>
+                                </v-btn>
+                            </template>
+                            <v-list>
+                                <v-list-item
+                                    v-for="(item, index) in items"
+                                    :key="index"
+                                    @click="handleChange(item.value)"
+                                >
+                                    <v-icon :color="item.color">
+                                        {{ item.icon }}
+                                    </v-icon>
+                                </v-list-item>
+                            </v-list>
+                        </v-menu>
                     </td>
 
-                    <td v-else class="pa-0" :class="getColor(member.presence)">
-                        <span class="d-flex justify-center align-center">
-                            <v-icon color="white">
-                                {{ getIcon(member.presence) }}
-                            </v-icon>
-                        </span>
+                    <td
+                        v-else
+                        class="pa-0 d-flex align-center justify-center"
+                        :class="getColor(member.presence)"
+                    >
+                        <v-icon color="white">
+                            {{ getIcon(member.presence) }}
+                        </v-icon>
                     </td>
                 </tr>
             </tbody>

@@ -51,6 +51,6 @@ export default {
 
 <style lang="scss" scoped>
 .global {
-    background-color: #c5c5c5 !important;
+    background-color: #f1f1f1 !important;
 }
 </style>
