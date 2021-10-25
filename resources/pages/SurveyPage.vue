@@ -4,8 +4,8 @@
             <v-progress-circular indeterminate color="primary" />
         </div>
 
-        <div v-else class="mainPage">
-            <div>
+        <div v-else class="mainContainer">
+            <div class="mainCard">
                 <v-card class="rounded-xl">
                     <v-card-title class="survey black--text">
                         {{ survey.name }}
@@ -32,7 +32,7 @@
                 </v-card>
             </div>
 
-            <div>
+            <div class="calendar">
                 <Calendar />
             </div>
 
@@ -45,7 +45,7 @@
                 </v-card>
             </div>
 
-            <div>
+            <div v-if="isLogged && isUserAdmin" class="memberManager">
                 <v-card v-if="isUserAdmin" class="rounded-xl">
                     <v-card-title class="user black--text">
                         Gestion des membres
@@ -129,12 +129,27 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.presences {
+.mainContainer {
+    display: grid;
+    grid-gap: 1.5rem;
+    grid-template-areas: "mainCard" "presences" "memberManager" "calendar";
     @media (min-width: 960px) {
-        grid-column: 1 / 3;
+        grid-template-areas: "mainCard calendar" "presences presences" "memberManager .";
     }
-    @media (min-width: 1904px) {
-        grid-column: auto;
-    }
+}
+.mainCard {
+    grid-area: mainCard;
+}
+.calendar {
+    grid-area: calendar;
+}
+.presences {
+    grid-area: presences;
+}
+.memberManager {
+    grid-area: memberManager;
+}
+.comments {
+    grid-area: comments;
 }
 </style>

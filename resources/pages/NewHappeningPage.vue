@@ -179,7 +179,7 @@ export default {
         }),
         ...mapGetters({
             isUserAdmin: "team/isUserAdmin",
-            selectedMembersIds: "common/selectedMembersIds",
+            selectedMembersIds: "form/selectedMembersIds",
         }),
         disablingButton: function () {
             const start = new Date(this.startDate + " " + this.startTime);

@@ -17,6 +17,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/{any?}/{other?}', function () {
+Route::get('/{any?}/{other?}/{another?}', function () {
     return view('welcome');
 });

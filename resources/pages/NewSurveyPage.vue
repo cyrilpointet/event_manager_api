@@ -100,7 +100,7 @@ export default {
         }),
         ...mapGetters({
             isUserAdmin: "team/isUserAdmin",
-            selectedMembersIds: "common/selectedMembersIds",
+            selectedMembersIds: "form/selectedMembersIds",
         }),
         disablingButton() {
             return !this.valid || this.dates.length < 1;

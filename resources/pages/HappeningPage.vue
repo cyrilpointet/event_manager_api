@@ -4,8 +4,8 @@
             <v-progress-circular indeterminate color="primary" />
         </div>
 
-        <div v-else class="mainPage">
-            <div>
+        <div v-else class="mainContainer">
+            <div class="mainCard">
                 <v-card class="rounded-xl">
                     <v-card-title class="events black--text">
                         {{ happening.name }}
@@ -50,11 +50,7 @@
                 </v-card>
             </div>
 
-            <div>
-                <Calendar />
-            </div>
-
-            <div>
+            <div class="presences">
                 <v-card class="rounded-xl">
                     <v-card-title class="user black--text"
                         >Présences</v-card-title
@@ -76,7 +72,7 @@
                 </v-card>
             </div>
 
-            <div>
+            <div class="comments">
                 <v-card class="rounded-xl">
                     <v-card-title class="default black--text"
                         >Commentaires</v-card-title
@@ -85,6 +81,10 @@
                         <HappeningComments />
                     </v-card-text>
                 </v-card>
+            </div>
+
+            <div class="calendar">
+                <Calendar />
             </div>
         </div>
     </div>
@@ -200,10 +200,27 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.memberManager {
+.mainContainer {
+    display: grid;
+    grid-gap: 1.5rem;
+    grid-template-areas: "mainCard" "presences" "memberManager" "comments" "calendar";
     @media (min-width: 960px) {
-        grid-row: 2 / 4;
-        grid-column: 2 / 3;
+        grid-template-areas: "mainCard calendar" "presences comments" "memberManager .";
     }
+}
+.mainCard {
+    grid-area: mainCard;
+}
+.calendar {
+    grid-area: calendar;
+}
+.presences {
+    grid-area: presences;
+}
+.memberManager {
+    grid-area: memberManager;
+}
+.comments {
+    grid-area: comments;
 }
 </style>
