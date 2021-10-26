@@ -24,13 +24,15 @@
                             v-if="isUserAdmin && isEditing"
                             @close="isEditing = false"
                         />
-                        <div v-if="isUserAdmin && !isEditing">
+                        <div
+                            v-if="isUserAdmin && !isEditing"
+                            class="buttonsContainer"
+                        >
                             <v-btn
                                 color="secondary"
                                 outlined
                                 rounded
-                                min-width="100%"
-                                class="mt-4"
+                                class="mt-4 flex-grow-1"
                                 @click="isEditing = !isEditing"
                             >
                                 Editer
@@ -39,8 +41,7 @@
                                 color="error"
                                 outlined
                                 rounded
-                                min-width="100%"
-                                class="mt-4"
+                                class="mt-4 flex-grow-1"
                                 @click="askDeleteHappening"
                             >
                                 Supprimer
@@ -52,9 +53,9 @@
 
             <div class="presences">
                 <v-card class="rounded-xl">
-                    <v-card-title class="user black--text"
-                        >Présences</v-card-title
-                    >
+                    <v-card-title class="user black--text">
+                        Présences
+                    </v-card-title>
                     <v-card-text>
                         <MembersPresences />
                     </v-card-text>
@@ -74,9 +75,9 @@
 
             <div class="comments">
                 <v-card class="rounded-xl">
-                    <v-card-title class="default black--text"
-                        >Commentaires</v-card-title
-                    >
+                    <v-card-title class="default black--text">
+                        Commentaires
+                    </v-card-title>
                     <v-card-text>
                         <HappeningComments />
                     </v-card-text>
@@ -222,5 +223,9 @@ export default {
 }
 .comments {
     grid-area: comments;
+}
+.buttonsContainer {
+    display: flex;
+    gap: 1rem;
 }
 </style>

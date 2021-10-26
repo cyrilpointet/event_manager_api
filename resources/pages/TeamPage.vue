@@ -4,8 +4,8 @@
             <v-progress-circular indeterminate color="primary" />
         </div>
 
-        <div v-else class="mainPage">
-            <div>
+        <div v-else class="mainContainer">
+            <div class="mainCard">
                 <v-card class="rounded-xl">
                     <v-card-title class="team black--text">{{
                         team.name
@@ -77,46 +77,46 @@
                 </v-card>
             </div>
 
-            <div>
-                <Calendar />
+            <div class="invitationsCard">
+                <v-card
+                    v-if="isUserAdmin && team.invitations.length > 0"
+                    class="rounded-xl"
+                >
+                    <v-card-title class="user black--text">
+                        Demandes d'adhésion
+                    </v-card-title>
+                    <v-card-text>
+                        <UserInvitationsManager />
+                    </v-card-text>
+                </v-card>
             </div>
 
-            <v-card
-                v-if="isUserAdmin && team.invitations.length > 0"
-                class="rounded-xl"
-            >
-                <v-card-title class="user black--text">
-                    Demandes d'adhésion
-                </v-card-title>
-                <v-card-text>
-                    <UserInvitationsManager />
-                </v-card-text>
-            </v-card>
-
-            <v-card class="rounded-xl">
-                <v-card-title class="events black--text">
-                    <span>
-                        <v-badge
-                            color="accent"
-                            :content="
-                                user.getUpcommingHappeningsByTeam(team.id)
-                                    .length
-                            "
-                        >
-                            Prochains évènements
-                        </v-badge>
-                    </span>
-                </v-card-title>
-                <v-card-text>
-                    <NextTeamHappenings />
-                </v-card-text>
-            </v-card>
-
-            <div>
+            <div class="eventsCard">
                 <v-card class="rounded-xl">
-                    <v-card-title class="user black--text"
-                        >Membres</v-card-title
-                    >
+                    <v-card-title class="events black--text">
+                        <span>
+                            <v-badge
+                                color="accent"
+                                :content="
+                                    user.getUpcommingHappeningsByTeam(team.id)
+                                        .length
+                                "
+                            >
+                                Prochains évènements
+                            </v-badge>
+                        </span>
+                    </v-card-title>
+                    <v-card-text>
+                        <NextTeamHappenings />
+                    </v-card-text>
+                </v-card>
+            </div>
+
+            <div class="membersCard">
+                <v-card class="rounded-xl">
+                    <v-card-title class="user black--text">
+                        Membres
+                    </v-card-title>
                     <v-card-text>
                         <MembersViewer v-if="!isUserAdmin" />
                         <MembersManager v-if="isUserAdmin" />
@@ -127,6 +127,10 @@
                         </div>
                     </v-card-text>
                 </v-card>
+            </div>
+
+            <div class="calendarCard">
+                <Calendar />
             </div>
         </div>
 
@@ -297,3 +301,31 @@ export default {
     },
 };
 </script>
+
+<style lang="scss" scoped>
+.mainContainer {
+    display: grid;
+    grid-gap: 1.5rem;
+    grid-template-columns: 1fr;
+    grid-template-areas: "mainCard" "invitationsCard" "eventsCard" "membersCard" "calendarCard";
+    @media (min-width: 960px) {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-areas: "mainCard calendarCard" "invitationsCard calendarCard" "membersCard eventsCard";
+    }
+}
+.mainCard {
+    grid-area: mainCard;
+}
+.invitationsCard {
+    grid-area: invitationsCard;
+}
+.eventsCard {
+    grid-area: eventsCard;
+}
+.membersCard {
+    grid-area: membersCard;
+}
+.calendarCard {
+    grid-area: calendarCard;
+}
+</style>
